@@ -4,7 +4,7 @@ int nombreSaisi = int.Parse(Console.ReadLine());
 Console.Write("Entrez le chiffre/nombre diviseur : ");
 int nombreDiviseur = int.Parse(Console.ReadLine());
 
-if (nombreSaisi % nombreDiviseur == 0)
+if(nombreSaisi % nombreDiviseur == 0)
 {
     Console.WriteLine($"Le  est divisible par " + nombreDiviseur);
 }
