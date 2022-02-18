@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MesClasses
+namespace C01_MesClasses
 {
     public class Dog : Mammal
     {
