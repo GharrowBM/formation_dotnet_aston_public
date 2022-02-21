@@ -10,7 +10,7 @@ internal class IHM
 {
     public void Run()
     {
-        DemoGeneriques();
+        DemoPredicate();
     }
 
     private void DemoBaseCSharp()
@@ -137,7 +137,62 @@ internal class IHM
 
         foreach (var item in maFile)
         {
-            Console.WriteLine(item);
+            if (item != null) Console.WriteLine(item);
         }
+    }
+    
+    private void DemoExtensions()
+    {
+        // String de départ 
+
+        string maString = "JE tAppE N'ImPoRTE CommENT eT je ME FICHE dE la SynTaxe !";
+        List<int> maList = new List<int>();
+
+        Random rng = new Random();
+
+        for (int i = 0; i < 20; i++) maList.Add(rng.Next(31));
+
+        // String voulue  => "Je tappe n'importe comment et je me fiche de la syntaxe !"
+
+        string resultat = maString.ToCapitalize();
+        List<int> listResult = maList.SortInferiorTo(15);
+
+        Console.WriteLine($"Liste AVANT : {string.Join(", ", maList)}");
+        Console.WriteLine($"Liste APRES : {string.Join(", ", listResult)}");
+        Console.WriteLine("String AVANT : {0}", arg0: maString);
+        Console.WriteLine("String APRES : {0}", arg0: resultat);
+
+    }
+
+    private void DemoDelegates()
+    {
+        Sale premiereVente = new Sale("Iphone X", 1299.99M);
+
+        premiereVente.Promotion += EnvoieSMS;
+        premiereVente.Promotion += EnvoieMail;
+
+        premiereVente.Reduction(200);
+    }
+
+    private void DemoPredicate()
+    {
+        List<string> listBase = new List<string> { "Albert", "Bernard", "Alfred", "René", "Chloée" };
+
+        List<string> listModif = listBase.SortMyList(person => person.StartsWith("Al"));
+
+        Console.WriteLine($"Liste AVANT : {string.Join(", ", listBase)}");
+        Console.WriteLine($"Liste APRES : {string.Join(", ", listModif)}");
+
+    }
+
+    private static void EnvoieSMS(decimal amount)
+    {
+        Console.WriteLine($"Une réduction a eu lieu : Nouveau prix : {amount:C2}");
+    }
+
+    private static void EnvoieMail(decimal amount)
+    {
+        Console.WriteLine($"Nouveau mail ! Réduction => Nouveau prix : {amount:C2}");
+
     }
 }
