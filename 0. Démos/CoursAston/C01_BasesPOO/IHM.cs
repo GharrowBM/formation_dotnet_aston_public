@@ -10,10 +10,7 @@ internal class IHM
 {
     public void Run()
     {
-        decimal price = 149.99M;
-
-        Console.WriteLine("Le prix est de {0}", 
-            arg0 : price.ToString("C2", CultureInfo.GetCultureInfo("fr-FR")));
+        DemoGeneriques();
     }
 
     private void DemoBaseCSharp()
@@ -125,5 +122,10 @@ internal class IHM
 
         monChien.Chase();
         monChien.Chase("Une taupe");
+    }
+
+    private void DemoGeneriques()
+    {
+
     }
 }
