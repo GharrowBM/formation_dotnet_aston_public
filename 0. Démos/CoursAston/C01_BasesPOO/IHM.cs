@@ -126,6 +126,18 @@ internal class IHM
 
     private void DemoGeneriques()
     {
+        QueueCustom<string> maFile = new QueueCustom<string>(10);
 
+        maFile.Add("Albert");
+        maFile.Add("Bernard");
+        maFile.Add("Chloé");
+        maFile.Add("David");
+        maFile.Add("Elliot");
+        maFile.Add("Francis");
+
+        foreach (var item in maFile)
+        {
+            Console.WriteLine(item);
+        }
     }
 }
