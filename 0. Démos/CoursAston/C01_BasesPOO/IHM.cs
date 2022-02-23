@@ -1,5 +1,4 @@
-﻿using C01_MesClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +9,128 @@ internal class IHM
 {
     public void Run()
     {
-        DemoPredicate();
+        TestTupleBis();
+    }
+
+    private void TestTupleBis()
+    {
+        //Tuple<int, int> SumAndProduct(int nbA, int nbB)
+        //{
+        //    int sum = nbA + nbB;
+        //    int product = nbA * nbB;
+
+        //    //return new Tuple<int, int>(sum, product);
+        //    return Tuple.Create(sum, product);
+        //}
+
+        (int, int) SumAndProduct(int nbA, int nbB)
+        {
+            int sum = nbA + nbB;
+            int product = nbA * nbB;
+
+            //return new Tuple<int, int>(sum, product);
+            return (sum, product);
+        }
+
+        int nombreA = 2;
+        int nombreB = 10;
+
+        //Tuple<int, int> myTuple = SumAndProduct(nombreA, nombreB);
+        var (somme, produit) = SumAndProduct(nombreA, nombreB);
+
+        Console.WriteLine($"{nombreA} + {nombreB} = {somme}");
+        Console.WriteLine($"{nombreA} * {nombreB} = {produit}");
+    }
+
+    private void TestTuple()
+    {
+        int Sum(int nbA, int nbB)
+        {
+            nbA++;
+            nbB++;
+
+            Console.WriteLine($"Dans la fonction Sum, nbA vaut {nbA} et nbB vaut {nbB}...");
+
+            return nbA + nbB;
+        }
+
+        int SumWithRef(ref int nbA, ref int nbB)
+        {
+            nbA++;
+            nbB++;
+
+            Console.WriteLine($"Dans la fonction Sum, nbA vaut {nbA} et nbB vaut {nbB}...");
+
+            return nbA + nbB;
+        }
+
+        int nombreA = 2;
+        int nombreB = 8;
+
+
+        Console.WriteLine("=== SANS REF ===");
+        Console.WriteLine($"Avant la fonction Sum, nbA vaut {nombreA} et nbB vaut {nombreB}...");
+
+        int somme = Sum(nombreA, nombreB);
+
+        Console.WriteLine($"Après la fonction Sum, nbA vaut {nombreA} et nbB vaut {nombreB}...");
+        Console.WriteLine($"La somme des deux vaut : {somme}");
+
+        int nombreC = 1;
+        int nombreD = 14;
+
+        Console.WriteLine();
+        Console.WriteLine("=== AVEC REF ===");
+        Console.WriteLine($"Avant la fonction Sum, nbA vaut {nombreC} et nbB vaut {nombreD}...");
+
+        int somme2 = SumWithRef(ref nombreC, ref nombreD);
+
+        Console.WriteLine($"Après la fonction Sum, nbA vaut {nombreC} et nbB vaut {nombreD}...");
+        Console.WriteLine($"La somme des deux vaut : {somme2}");
+
+    }
+
+    private void DemoSurchargeOperateurs()
+    {
+        Personne matthieu = new("Matthieu", GenderPersonne.Homme);
+        Personne sandrine = new("Sandrine", GenderPersonne.Femme);
+        Personne chloee = new("Chloée", GenderPersonne.Femme);
+
+        Personne enfantA = matthieu * sandrine;
+        Personne enfantB = chloee * sandrine;
+
+        matthieu.FavAnimals = FavAnimalsPerson.Chien | FavAnimalsPerson.Chat;
+
+        Console.WriteLine("=== ADULTES ===");
+        Console.WriteLine(matthieu);
+        Console.WriteLine(sandrine);
+        Console.WriteLine(chloee);
+
+        Console.WriteLine("=== ENFANTS ===");
+        Console.WriteLine(enfantA);
+        Console.WriteLine(enfantB);
+    }
+
+    private void DemoOperatorOverloading()
+    {
+        Character matthieu = new("Matthieu", Gender.Male);
+        Character sandra = new("Sandra", Gender.Female);
+        Character chloee = new("Chloée", Gender.Female);
+
+        Character childA = matthieu * sandra;
+        Character childB= chloee * sandra;
+
+        matthieu.FavAnimals = FavoriteAnimals.Cat | FavoriteAnimals.Chipmunk;
+
+        Console.WriteLine("=== ADULTES ===");
+        Console.WriteLine(matthieu);
+        Console.WriteLine(sandra);
+        Console.WriteLine(chloee);
+
+        Console.WriteLine();
+        Console.WriteLine("=== ENFANTS ===");
+        Console.WriteLine(childA);
+        Console.WriteLine(childB);
     }
 
     private void DemoBaseCSharp()
