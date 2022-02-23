@@ -25,7 +25,13 @@ namespace C01_MesClasses
             Random random = new Random();
             int rngSex = random.Next(2);
 
-            return new Character(GenerateurDePrenom.Generer(rngSex), (Gender) rngSex);
+            return new Character(rngSex);
+        }
+
+        public Character(int rngSex)
+        {
+            _name = GenerateurDePrenom.Generer(rngSex);
+            _gender = (Gender)rngSex;
         }
 
         public Character(string name, Gender gender)

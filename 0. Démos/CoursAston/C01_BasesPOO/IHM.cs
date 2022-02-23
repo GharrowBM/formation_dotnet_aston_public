@@ -7,9 +7,17 @@ using System.Threading.Tasks;
 namespace C01_BasesPOO;
 internal class IHM
 {
+    //private const int AGE_CONST = 10;
+    //private readonly int _age;
+
+    //public IHM(int age)
+    //{
+    //    _age = age;
+    //}
+
     public void Run()
     {
-        TestTuple();
+        TestVariableKeyWords();
     }
 
     private void TestTuple()
@@ -42,6 +50,58 @@ internal class IHM
         Console.WriteLine($"{nombreA} * {nombreB} = {produit}");
     }
 
+    private void TestVariableKeyWords()
+    {
+        void Increment(ref int nbA, ref int nbB)
+        {
+            nbA++;
+            nbB++;
+        }
+
+        int nombreValeur = 25;
+
+        Console.WriteLine("=== IN ===");
+        InKeywordTest(nombreValeur);
+
+        int nombreA = 1;
+        int nombreB = 5;
+
+        Console.WriteLine();
+        Console.WriteLine("=== REF ===");
+        Console.WriteLine($"Avant la méthode, {nombreA} et {nombreB}");
+
+        Increment(ref nombreA, ref nombreB);
+
+        Console.WriteLine($"Après la méthode, {nombreA} et {nombreB}");
+
+        Console.WriteLine();
+        Console.WriteLine("=== OUT ===");
+
+        //decimal valeurTaxee = 0.0M;
+        //string valeurTaxeeStr = null;
+
+        //float priceFloat = 12.99f;
+        decimal price = 12.99M; // M pour les decimal
+        decimal taxes = 0.20M;
+
+        OutingVariable(price, taxes, out decimal valeurTaxee, out string valeurTaxeeStr);
+
+        Console.WriteLine($"Le produit de valeur {price:C2} avec un taux de taxation de {taxes:P} va avoir une valeur T.T.C de {valeurTaxee:C2}");
+
+    }
+
+    private void InKeywordTest(in int value)
+    {
+        //value++; impossible car IN crée des READ-ONLY
+
+        Console.WriteLine($"Dans la méthode, value vaut {value}");
+    }
+
+    private void OutingVariable(decimal basePrice, decimal taxes, out decimal priceTTC, out string valueInText)
+    {
+        priceTTC = basePrice + basePrice * (taxes / 100);
+        valueInText = priceTTC.ToString("C2", CultureInfo.CurrentCulture);
+    }
 
     private void DemoSurchargeOperateurs()
     {
