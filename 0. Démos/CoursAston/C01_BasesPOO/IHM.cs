@@ -84,6 +84,7 @@ internal class IHM
         decimal price = 12.99M; // M pour les decimal
         decimal taxes = 0.20M;
 
+        //OutingVariable(price, taxes, out valeurTaxee, out valeurTaxeeStr);
         OutingVariable(price, taxes, out decimal valeurTaxee, out string valeurTaxeeStr);
 
         Console.WriteLine($"Le produit de valeur {price:C2} avec un taux de taxation de {taxes:P} va avoir une valeur T.T.C de {valeurTaxee:C2}");
