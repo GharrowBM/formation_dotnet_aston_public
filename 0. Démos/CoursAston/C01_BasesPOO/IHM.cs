@@ -9,10 +9,10 @@ internal class IHM
 {
     public void Run()
     {
-        TestTupleBis();
+        TestTuple();
     }
 
-    private void TestTupleBis()
+    private void TestTuple()
     {
         //Tuple<int, int> SumAndProduct(int nbA, int nbB)
         //{
@@ -42,64 +42,17 @@ internal class IHM
         Console.WriteLine($"{nombreA} * {nombreB} = {produit}");
     }
 
-    private void TestTuple()
-    {
-        int Sum(int nbA, int nbB)
-        {
-            nbA++;
-            nbB++;
-
-            Console.WriteLine($"Dans la fonction Sum, nbA vaut {nbA} et nbB vaut {nbB}...");
-
-            return nbA + nbB;
-        }
-
-        int SumWithRef(ref int nbA, ref int nbB)
-        {
-            nbA++;
-            nbB++;
-
-            Console.WriteLine($"Dans la fonction Sum, nbA vaut {nbA} et nbB vaut {nbB}...");
-
-            return nbA + nbB;
-        }
-
-        int nombreA = 2;
-        int nombreB = 8;
-
-
-        Console.WriteLine("=== SANS REF ===");
-        Console.WriteLine($"Avant la fonction Sum, nbA vaut {nombreA} et nbB vaut {nombreB}...");
-
-        int somme = Sum(nombreA, nombreB);
-
-        Console.WriteLine($"Après la fonction Sum, nbA vaut {nombreA} et nbB vaut {nombreB}...");
-        Console.WriteLine($"La somme des deux vaut : {somme}");
-
-        int nombreC = 1;
-        int nombreD = 14;
-
-        Console.WriteLine();
-        Console.WriteLine("=== AVEC REF ===");
-        Console.WriteLine($"Avant la fonction Sum, nbA vaut {nombreC} et nbB vaut {nombreD}...");
-
-        int somme2 = SumWithRef(ref nombreC, ref nombreD);
-
-        Console.WriteLine($"Après la fonction Sum, nbA vaut {nombreC} et nbB vaut {nombreD}...");
-        Console.WriteLine($"La somme des deux vaut : {somme2}");
-
-    }
 
     private void DemoSurchargeOperateurs()
     {
-        Personne matthieu = new("Matthieu", GenderPersonne.Homme);
-        Personne sandrine = new("Sandrine", GenderPersonne.Femme);
-        Personne chloee = new("Chloée", GenderPersonne.Femme);
+        Character matthieu = new("Matthieu", Gender.Homme);
+        Character sandrine = new("Sandrine", Gender.Femme);
+        Character chloee = new("Chloée", Gender.Femme);
 
-        Personne enfantA = matthieu * sandrine;
-        Personne enfantB = chloee * sandrine;
+        Character enfantA = matthieu * sandrine;
+        Character enfantB = chloee * sandrine;
 
-        matthieu.FavAnimals = FavAnimalsPerson.Chien | FavAnimalsPerson.Chat;
+        matthieu.FavAnimals = FavoriteAnimals.Chien | FavoriteAnimals.Chat;
 
         Console.WriteLine("=== ADULTES ===");
         Console.WriteLine(matthieu);
@@ -109,28 +62,6 @@ internal class IHM
         Console.WriteLine("=== ENFANTS ===");
         Console.WriteLine(enfantA);
         Console.WriteLine(enfantB);
-    }
-
-    private void DemoOperatorOverloading()
-    {
-        Character matthieu = new("Matthieu", Gender.Male);
-        Character sandra = new("Sandra", Gender.Female);
-        Character chloee = new("Chloée", Gender.Female);
-
-        Character childA = matthieu * sandra;
-        Character childB= chloee * sandra;
-
-        matthieu.FavAnimals = FavoriteAnimals.Cat | FavoriteAnimals.Chipmunk;
-
-        Console.WriteLine("=== ADULTES ===");
-        Console.WriteLine(matthieu);
-        Console.WriteLine(sandra);
-        Console.WriteLine(chloee);
-
-        Console.WriteLine();
-        Console.WriteLine("=== ENFANTS ===");
-        Console.WriteLine(childA);
-        Console.WriteLine(childB);
     }
 
     private void DemoBaseCSharp()

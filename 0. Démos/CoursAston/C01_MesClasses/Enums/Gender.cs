@@ -8,7 +8,7 @@ namespace C01_MesClasses.Enums
 {
     public enum Gender
     {
-        Male,
-        Female
+        Homme,
+        Femme
     }
 }

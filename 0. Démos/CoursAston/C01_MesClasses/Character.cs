@@ -41,7 +41,7 @@ namespace C01_MesClasses
 
         public override string ToString()
         {
-            return $"{_name} is a {_gender} and {(_gender is Gender.Male ? "his" : "her")} favorite animals are : {_favAnimals}";
+            return $"{_name} est un {_gender} et ses animaux préférés sont : {_favAnimals}";
         }
     }
 }

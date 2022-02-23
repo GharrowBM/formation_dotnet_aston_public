@@ -9,14 +9,14 @@ namespace C01_MesClasses.Enums
     [Flags]
     public enum FavoriteAnimals
     {
-        None = 0,
-        Cat = 1,
-        Dog = 2,
+        Rien = 0,
+        Chat = 1,
+        Chien = 2,
         Hamster = 4,
         Chipmunk = 8,
-        Fox = 16,
-        Wolf = 32,
-        Panther = 64,
+        Renard = 16,
+        Loup = 32,
+        Panthère = 64,
         Lion = 128
     }
 }
