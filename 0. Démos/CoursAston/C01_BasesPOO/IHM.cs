@@ -52,7 +52,6 @@ internal class IHM
         finally
         {
             Console.WriteLine("Fermeture de la connexion à la BdD...");
-
         }
     }
 
