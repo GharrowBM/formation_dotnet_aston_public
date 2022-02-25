@@ -1,4 +1,6 @@
-﻿using System;
+﻿using C01_MesClasses.Exceptions;
+using C01_MesClasses.Structs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +19,41 @@ internal class IHM
 
     public void Run()
     {
-        TestVariableKeyWords();
+        TestStructRecords();
+    }
+
+    private void TestStructRecords()
+    {
+        try
+        {
+            Console.WriteLine("Début de la création des chambres...");
+            Console.WriteLine("Connexion à la BdD...");
+
+            Room roomA = new(8, RoomStatus.Free, 25.99M);
+
+            RoomStruct roomB = new( status: RoomStatus.Occupied, price: 35.99M, capacity: 8);
+            RoomStruct roomC = new( status: RoomStatus.Occupied, price: 35.99M, capacity: 5);
+            RoomStruct roomD = roomC with { Capacity = 2};
+            roomC.Capacity = 8;
+
+            RoomRecord roomE = new() { Capacity = 8, Status = RoomStatus.Booked, Price = 15.99M };
+            RoomRecord roomF = roomE with { Capacity = 1};
+            //roomE.Capacity = 20; impossible car la propriété est en { get; init; }
+
+        }
+        catch (TooManyBedsException ex)
+        {
+            Console.WriteLine($"{ex} : {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"{ex} : {ex.Message}");
+        }
+        finally
+        {
+            Console.WriteLine("Fermeture de la connexion à la BdD...");
+
+        }
     }
 
     private void TestTuple()
