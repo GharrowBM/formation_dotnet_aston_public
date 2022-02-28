@@ -26,6 +26,16 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// On put spécifier une route alternative pour notre controller et notre action, comme ici on aura https://localhost:5001/clients
+
+app.MapControllerRoute(name: "clients-list",
+    pattern: "clients",
+    defaults: new { controller = "Home", action = "GetMyClients" });
+
+app.MapControllerRoute(name: "client-deletion",
+    pattern: "client/del/{id}",
+    defaults: new { controller = "Home", action = "RemoveClient" });
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
