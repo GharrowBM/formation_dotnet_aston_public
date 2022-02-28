@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C01_BasesPOO", "C01_BasesPO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C01_MesClasses", "C01_MesClasses\C01_MesClasses.csproj", "{269469D7-7AB8-429F-8D1A-B30232B34DAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C02_ASPNet", "C02_ASPNet\C02_ASPNet.csproj", "{5198F439-F309-48B6-AC6B-B13EF9AA2E00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{269469D7-7AB8-429F-8D1A-B30232B34DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{269469D7-7AB8-429F-8D1A-B30232B34DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{269469D7-7AB8-429F-8D1A-B30232B34DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5198F439-F309-48B6-AC6B-B13EF9AA2E00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5198F439-F309-48B6-AC6B-B13EF9AA2E00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5198F439-F309-48B6-AC6B-B13EF9AA2E00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5198F439-F309-48B6-AC6B-B13EF9AA2E00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

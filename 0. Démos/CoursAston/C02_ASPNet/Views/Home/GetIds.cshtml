@@ -1,0 +1,15 @@
+﻿@model List<string>
+
+<h2>Ajouter Client</h2>
+<form asp-action="AddClient" asp-controller="Home">
+    <input type="text" name="clientName" placeholder="Valeur" />
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
+
+<a asp-action="RemoveClient" asp-controller="Home" asp-route-id="3">Supprimer la 3ème personne de la liste</a>
+
+<h2>Mes Clients</h2>
+@foreach(var str in Model) 
+{
+    <p>@str</p>
+}
