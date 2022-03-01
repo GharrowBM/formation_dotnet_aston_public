@@ -32,3 +32,5 @@
 
     <a asp-action="Add" class="btn btn-success">Ajouter un chien</a>
 </div>
+
+@Html.Partial("_CreateNewItem", new CreateNewItemVM() {ControllerName = "Dogs", ActionName="Add", IsMale=true, ItemName="Chien"});
