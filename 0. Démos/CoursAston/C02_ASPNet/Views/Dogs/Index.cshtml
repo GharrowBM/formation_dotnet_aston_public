@@ -1,0 +1,34 @@
+﻿@model ICollection<Dog>
+
+@{
+    ViewData["Title"] = "Liste des chiens";
+}
+
+<div class="col-md-10 offset-1">
+    <h2>Liste des Chiens</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id.</th>
+                <th>Nom</th>
+                <th>Nombre de pattes</th>
+                <th>Couleur du collier</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var dog in Model)
+            {
+                <tr>
+                    <td>@dog.Id</td>
+                    <td>@dog.Name</td>
+                    <td>@dog.NbOfLegs</td>
+                    <td>@dog.CollarColor</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Add" class="btn btn-success">Ajouter un chien</a>
+</div>

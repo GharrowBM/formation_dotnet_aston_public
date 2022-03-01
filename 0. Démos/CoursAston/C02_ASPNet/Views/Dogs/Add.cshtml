@@ -1,0 +1,40 @@
+﻿@model DogVM
+
+@{
+    ViewData["Title"] = "Ajouter un chien";
+}
+
+<div class="col-md-10 offset-1">
+    <h2>Ajouter un Chien</h2>
+
+    <form asp-action="Add">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div>
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="NbOfLegs" class="form-label"></label>
+            <input asp-for="NbOfLegs" class="form-control" />
+            <span asp-validation-for="NbOfLegs" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="MasterId" class="form-label"></label>
+            <select asp-for="MasterId" class="form-control" asp-items="@ViewBag.Masters"></select>
+            <span asp-validation-for="MasterId" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="CollarColor" class="form-label"></label>
+            <select asp-for="CollarColor" class="form-control" asp-items="@Html.GetEnumSelectList<CollarColor>()"></select>
+            <span asp-validation-for="CollarColor" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </form>
+
+</div>
