@@ -1,0 +1,10 @@
+﻿<div class="col-md-10 offset-1 text-center">
+    <h2>Test Picture</h2>
+
+    <img src="~/@ViewBag.PictureURL" alt="Home Picture" />
+
+    <form asp-action="UploadPicture" enctype="multipart/form-data">
+        <input type="file" name="picture" class="form-control"/>
+        <button type="submit" class="btn-primary btn">Submit</button>
+    </form>
+</div>

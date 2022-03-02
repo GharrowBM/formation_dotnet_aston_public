@@ -1,0 +1,47 @@
+﻿@model ICollection<Product>
+
+@{
+    ViewData["Title"] = "Liste des ventes";
+}
+
+@if(ViewData["MessageAlert"] is not null)
+{
+    MessageAlertVM msgVM = ViewData["MessageAlert"] as MessageAlertVM;
+
+    <div class="@msgVM.Classes">
+        @msgVM.Content
+    </div>
+}
+
+<div class="col-md-10 offset-1">
+    <h2>Liste des produits</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id.</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix (€)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Price.ToString("C2")</td>
+                    <td>
+                        <a asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash"></i> Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@Html.Partial("_CreateNewItem", new CreateNewItemVM() {ControllerName = "Products", ActionName = "Create", ItemName = "Produit", IsMale = true});

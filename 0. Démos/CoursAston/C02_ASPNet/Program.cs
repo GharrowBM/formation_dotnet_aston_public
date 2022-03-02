@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddScoped<IGetGuid, GetGuidService>();
 builder.Services.AddSingleton<IGetGuid, GetGuidService>();
 builder.Services.AddSingleton<DabaseMock>();
+builder.Services.AddTransient<UploadService>();
 
 var app = builder.Build();
 

@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model IEnumerable<TodoItem>
+    string todoTitle = String.Empty;
+    string todoDescription = String.Empty;
+}
+
+<div class="row">
+    <h1>Todo List</h1>
+
+    <form asp-action="AddNewTodo" class="row justify-content-around col-md-8 offset-2">
+        <input class="col form-control" type="text" name="title" value="@todoTitle" placeholder="Titre" />
+        <input class="col form-control" type="text" name="description" value="@todoDescription" placeholder="Description" />
+        <button class="col btn btn-success"><i class="bi bi-plus-circle"></i> Ajouter</button>
+    </form>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (TodoItem item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <a class="btn btn-info" asp-action="DeleteTodo" asp-route-id="@item.Id"><i class="bi bi-check"></i> Finie</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

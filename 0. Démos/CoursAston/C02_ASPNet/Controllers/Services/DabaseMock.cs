@@ -10,6 +10,7 @@ namespace C02_ASPNet.Controllers.Services
         public List<string> List { get { return _list; } }
         public List<Dog> Dogs { get { return _dogs; } }
         public List<Person> Persons { get { return _persons; } }
+        public string PictureURL { get; set; }
         public DabaseMock()
         {
             _list = new List<string>();
