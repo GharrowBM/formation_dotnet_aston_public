@@ -4,17 +4,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Ajout de l'Authentification qui permettra d'utiliser une authentification de type cookies avec des options
 builder.Services.AddAuthentication("AuthCookie").AddCookie("AuthCookie", options =>
 {
-    options.Cookie.Name = "AuthCookie";
-    options.LoginPath = "/Account/Login";
-    options.AccessDeniedPath = "/Account/AccessDenied";
-    options.ExpireTimeSpan = TimeSpan.FromDays(7);
+    options.Cookie.Name = "AuthCookie"; // La nom du cookie
+    options.LoginPath = "/Account/Login"; // Le chemin de redirection en cas de tentative d'accès à une page si on n'est pas logué
+    options.AccessDeniedPath = "/Account/AccessDenied"; // Le chemin de la page d'erreur en cas de mauvais rôle
+    options.ExpireTimeSpan = TimeSpan.FromDays(7); // Le delais d'expiration du cookie (ici 7 jours)
 });
 
+
+// Une fois l'authentification faite, on gère l'autorisation (pour gérer les droits potentiels des utilisateurs)
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Administrator"));
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Administrator")); // Ici, on fait une règle qui est d'être admin et seulement admin
 });
 
 //builder.Services.AddTransient<IGetGuid, GetGuidService>();
@@ -37,6 +41,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// On doit faire attention à l'ordre d'ajout des middleswares pour gérer les connexions 
 
 app.UseAuthentication();
 app.UseAuthorization();
