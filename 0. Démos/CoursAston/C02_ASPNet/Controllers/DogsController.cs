@@ -1,6 +1,7 @@
 ﻿using C02_ASPNet.Controllers.Services;
 using C02_ASPNet.Models;
 using C02_ASPNet.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -20,6 +21,7 @@ namespace C02_ASPNet.Controllers
         }
 
         [HttpGet]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult Add()
         {
             ViewBag.Masters = new SelectList(_db.Persons.ToList(), "Id", "Name");
@@ -28,6 +30,7 @@ namespace C02_ASPNet.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult Add(DogVM dog)
         {
             if (!ModelState.IsValid)

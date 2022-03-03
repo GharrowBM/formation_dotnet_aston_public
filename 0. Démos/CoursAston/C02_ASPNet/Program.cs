@@ -4,6 +4,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication("AuthCookie").AddCookie("AuthCookie", options =>
+{
+    options.Cookie.Name = "AuthCookie";
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromDays(7);
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("Administrator"));
+});
+
 //builder.Services.AddTransient<IGetGuid, GetGuidService>();
 //builder.Services.AddScoped<IGetGuid, GetGuidService>();
 builder.Services.AddSingleton<IGetGuid, GetGuidService>();
@@ -25,6 +38,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 // On put spécifier une route alternative pour notre controller et notre action, comme ici on aura https://localhost:5001/clients

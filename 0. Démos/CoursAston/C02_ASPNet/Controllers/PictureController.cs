@@ -1,8 +1,10 @@
 ﻿using C02_ASPNet.Controllers.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace C02_ASPNet.Controllers
 {
+    [Authorize]
     public class PictureController : Controller
     {
         private readonly UploadService _uploadService;
