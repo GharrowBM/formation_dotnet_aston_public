@@ -2,7 +2,7 @@
 {
     public class Dog
     {
-        public int Id { get; set; }
+        public int? Id { get; private set; }
         public string Name { get; set; }
         public int NbOfLegs { get; set; }
         public string CollarColor { get; set; }
