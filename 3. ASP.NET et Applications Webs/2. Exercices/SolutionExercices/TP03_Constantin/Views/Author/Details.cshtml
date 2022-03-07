@@ -1,0 +1,42 @@
+﻿@model AuthorsVM
+@{
+    bool isUserLambda = true;
+    if(User.HasClaim(x => x.Type == "Administrator"))
+    {
+        isUserLambda = false;
+    }
+}
+<div class="col-md-10 offset-1">
+    <h2>Ajouter un Auteur</h2>
+    <form asp-action="Details" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Id" hidden class="form-label"></label>
+            <input asp-for="Id" hidden class="form-control" value="@Model.Id" />
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="FullName"  class="form-label"></label>
+            <input asp-for="FullName" disabled="@isUserLambda" class="form-control" value="@Model.FullName"/>
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Biography"  class="form-label"></label>
+            <input asp-for="Biography"  disabled="@isUserLambda" class="form-control" value="@Model.Biography"/>
+            <span asp-validation-for="Biography" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="BirthDate"  class="form-label"></label>
+            <input type="datetime" asp-for="BirthDate" disabled="@isUserLambda" class="form-control" value="@Model.BirthDate"/>
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="DeathDate"  class="form-label"></label>
+            <input type="datetime" asp-for="DeathDate" disabled="@isUserLambda" class="form-control" value="@Model.DeathDate"/>
+            <span asp-validation-for="DeathDate" class="text-danger"></span>
+        </div>
+        <button type="submit" disabled="@isUserLambda" class="btn btn-success">Editer</button>
+
+    </form>
+    <a asp-action="Index" asp-controller="Author" class="btn btn-primary">Retour a l'index</a>
+</div>

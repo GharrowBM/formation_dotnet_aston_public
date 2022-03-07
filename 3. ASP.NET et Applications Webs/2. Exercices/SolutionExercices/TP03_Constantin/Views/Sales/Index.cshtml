@@ -1,0 +1,49 @@
+﻿@model List<Sales>
+@{
+    double totalPrice = 0;
+}
+<h1>Liste des Ventes</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Acheteur</th>
+            <th>Id de Ventes</th>
+            <th>Livres de la Ventes</th>
+            <th>PrixTotal</th>
+            <th>Status de la Vente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Sales sal in Model)
+        {
+            if (sal.ListBook.Count > 0)
+            {
+                totalPrice = 0;
+                <tr>
+                    <td>@sal.Buyer.Email</td>
+                    <td>@sal.Id</td>
+                    <td>
+                        @foreach (Books bo in @sal.ListBook)
+                        {
+                            <p>
+                                @bo.Title
+                                @bo.Price
+                            </p>
+
+                            totalPrice += bo.Price;
+                        }
+                    </td>
+                    <td>Prix Total : @totalPrice</td>
+                    @if (@sal.isFinished == true)
+                    {
+                        <td>Status : Terminé</td>
+                    }
+                    else
+                    {
+                        <td>Status : En Cours</td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

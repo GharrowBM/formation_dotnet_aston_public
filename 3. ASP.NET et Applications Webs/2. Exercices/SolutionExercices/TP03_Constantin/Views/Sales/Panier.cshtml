@@ -1,0 +1,38 @@
+﻿@model Sales
+@{
+    double TotalPrice = 0;
+}
+<h1>Panier</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Acheteur</th>
+            <th>Id de Ventes</th>
+            <th>Livres de la Ventes</th>
+            <th>PrixTotal</th>
+            <th>Status de la Vente</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Buyer.Email</td>
+            <td>@Model.Id</td>
+            <td>
+                @foreach (Books bo in @Model.ListBook)
+                {
+                    <p>
+                        @bo.Id
+                        @bo.Title
+                        @bo.Price €
+                        <a asp-action="RemoveBookFromSales" asp-controller="Sales" asp-route-idBook="@bo.Id">X</a>
+                    </p>
+                    TotalPrice += bo.Price;
+                }
+            </td>
+            <td>Prix Total : @TotalPrice €</td>
+        </tr>
+    </tbody>
+</table>
+<a asp-action="Validation" asp-controller="Sales" asp-route-id="@Model.Id" class="btn btn-primary">Valider la Commandes</a>
+
+

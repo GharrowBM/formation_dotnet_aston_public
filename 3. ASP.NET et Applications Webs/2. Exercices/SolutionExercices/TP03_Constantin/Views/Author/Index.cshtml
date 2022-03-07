@@ -1,0 +1,42 @@
+﻿@model List<Authors>
+@{
+    bool isUserLambda = true;
+    if (User.HasClaim(x => x.Type == "Administrator"))
+    {
+        isUserLambda = false;
+    }
+}
+<div class="col-md-10 offset-1">
+    <h2>Liste des Auteurs</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id.</th>
+                <th>Nom</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var author in Model)
+            {
+                <tr>
+                    <td>@author.Id</td>
+                    <td>@author.FullName</td>
+                    <td>
+                        <a asp-action="Details" asp-controller="Author" asp-route-id="@author.Id" class="btn btn-primary">Détails</a>
+                        @if(!isUserLambda)
+                        {
+                            <a asp-action="Remove" asp-controller="Author" disabled="@isUserLambda" asp-route-id="@author.Id" class="btn btn-primary">Supprimer</a>
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@if (!isUserLambda)
+{
+    @Html.Partial("_CreateNewItem", new CreateNewItemVM() {ControllerName = "Author", ActionName="Add",ItemName="Author"})
+}

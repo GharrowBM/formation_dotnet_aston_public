@@ -1,0 +1,64 @@
+﻿@model BooksVM
+@{
+    bool isUserLambda = true;
+    if(User.HasClaim(x => x.Type == "Administrator"))
+    {
+        isUserLambda = false;
+    }
+}
+<div class="col-md-10 offset-1">
+    <h2>Editer un Contact</h2>
+    <form asp-action="Details" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Id" hidden class="form-label"></label>
+            <input asp-for="Id" hidden class="form-control" value="@Model.Id" />
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" disabled="@isUserLambda" class="form-control" value="@Model.Title"/>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+          <div>
+            <label asp-for="DateParution" class="form-label"></label>
+            <input type="datetime" asp-for="DateParution" disabled="@isUserLambda" class="form-control" value="@Model.DateParution" />
+            <span asp-validation-for="DateParution" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Description" class="form-label"></label>
+            <input asp-for="Description" disabled="@isUserLambda" class="form-control" value="@Model.Description" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="AuthorId" class="form-label"></label>
+            <select asp-for="AuthorId" disabled="@isUserLambda" class="form-control" asp-items="@ViewBag.Authors" value="@Model.AuthorId"></select>
+            <span asp-validation-for="AuthorId" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="ISBN" class="form-label"></label>
+            <input asp-for="ISBN" disabled="@isUserLambda" class="form-control" value="@Model.ISBN"/>
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" disabled="@isUserLambda" class="form-control" value="@Model.Price"/>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Image" class="form-label"></label>
+            <input asp-for="Image" disabled="@isUserLambda" class="form-control" value="@Model.Image" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="ListCategory" class="form-label"></label>
+            <select asp-for="ListCategory" disabled="@isUserLambda" value="@Model.ListCategory" asp-items="@Html.GetEnumSelectList<Books.Categories>()" class="form-control"></select>
+            <span asp-validation-for="ListCategory" class="text-danger"></span>
+        </div>
+        <button type="submit" disabled="@isUserLambda" class="btn btn-success">Editer</button>
+
+    </form>
+    <a asp-action="Index" asp-controller="Book" class="btn btn-primary">Retour a l'index</a>
+
+
+</div>

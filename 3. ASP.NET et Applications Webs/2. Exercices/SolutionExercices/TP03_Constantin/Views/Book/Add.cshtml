@@ -1,0 +1,57 @@
+﻿@model BooksVM
+<div class="col-md-10 offset-1">
+    <h2>Ajouter un Livre</h2>
+    <form asp-action="Add" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Id" hidden class="form-label"></label>
+            <input asp-for="Id" hidden class="form-control" />
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="DateParution" class="form-label"></label>
+            <input asp-for="DateParution" class="form-control" />
+            <span asp-validation-for="DateParution" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Description" class="form-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="AuthorId" class="form-label"></label>
+            <select asp-for="AuthorId" class="form-control" asp-items="@ViewBag.Authors"></select>
+            <span asp-validation-for="AuthorId" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="ISBN" class="form-label"></label>
+            <input asp-for="ISBN" class="form-control" />
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Image" class="form-label"></label>
+            <input asp-for="Image" class="form-control" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="ListCategory" class="form-label"></label>
+            <select asp-for="ListCategory" asp-items="@Html.GetEnumSelectList<Books.Categories>()" class="form-control"></select>
+            <span asp-validation-for="ListCategory" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Ajouter
+
+        </button>
+
+    </form>
+    <a asp-action="Index" asp-controller="Book" class="btn btn-primary">Retour a l'index</a>
+</div>

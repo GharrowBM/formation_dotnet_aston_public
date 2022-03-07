@@ -1,0 +1,41 @@
+﻿@model Sales
+
+@{
+    double TotalPrice = 0;
+}
+<h1>Validation de la vente</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Acheteur</th>
+            <th>Id de Ventes</th>
+            <th>Livres de la Ventes</th>
+            <th>PrixTotal</th>
+            <th>Status de la Vente</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Buyer.Email</td>
+            <td>@Model.Id</td>
+            <td>
+                @foreach (Books bo in @Model.ListBook)
+                {
+                    <p>
+                        @bo.Id
+                        @bo.Title
+                        @bo.Price €
+                    </p>
+                    TotalPrice += bo.Price;
+                }
+            </td>
+            <td>Prix Total : @TotalPrice €</td>
+        </tr>
+    </tbody>
+</table>
+<h1>Voulez vous finir la commandes ? </h1>
+<h2>Prix Final : @TotalPrice  € </h2>
+<a asp-action="FinishSales" asp-controller="Sales" class="btn btn-primary">Oui</a>
+<a asp-action="Index" asp-controller="Book" class="btn btn-primary">Non</a>
+
+

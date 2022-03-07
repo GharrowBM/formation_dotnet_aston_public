@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP01b", "TP01b\TP01b.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP02", "TP02\TP02.csproj", "{99F32314-B41B-4817-BB3E-1C6684DF1929}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP03", "TP03\TP03.csproj", "{F8BF6820-B06A-4417-B025-84E4254BF2F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP03_Constantin", "TP03_Constantin\TP03_Constantin.csproj", "{F70488F5-1067-4661-9801-9B9373422F95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{99F32314-B41B-4817-BB3E-1C6684DF1929}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F32314-B41B-4817-BB3E-1C6684DF1929}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F32314-B41B-4817-BB3E-1C6684DF1929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8BF6820-B06A-4417-B025-84E4254BF2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8BF6820-B06A-4417-B025-84E4254BF2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8BF6820-B06A-4417-B025-84E4254BF2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8BF6820-B06A-4417-B025-84E4254BF2F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70488F5-1067-4661-9801-9B9373422F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70488F5-1067-4661-9801-9B9373422F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70488F5-1067-4661-9801-9B9373422F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70488F5-1067-4661-9801-9B9373422F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
