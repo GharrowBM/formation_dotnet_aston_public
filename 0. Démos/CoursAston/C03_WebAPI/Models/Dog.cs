@@ -2,15 +2,28 @@
 {
     public class Dog
     {
-        public int? Id { get; private set; }
+        public static int Count;
+        public int Id { get; set; }
         public string Name { get; set; }
         public int NbOfLegs { get; set; }
-        public string CollarColor { get; set; }
+        public Person Master { get; set; }
+        public CollarColor CollarColor { get; set; }
 
-        public static int Count;
         public Dog()
         {
             Id = ++Count;
         }
     }
+
+public enum CollarColor
+{
+    None, 
+    Blue,
+    Red,
+    Green,
+    Orange,
+    Pink,
+    White,
+    Black
+}
 }
