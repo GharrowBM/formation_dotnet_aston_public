@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP03", "TP03\TP03.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP03_Constantin", "TP03_Constantin\TP03_Constantin.csproj", "{F70488F5-1067-4661-9801-9B9373422F95}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP04", "TP04\TP04.csproj", "{A5E501EE-3303-42A3-8BE3-792EF44C91BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F70488F5-1067-4661-9801-9B9373422F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F70488F5-1067-4661-9801-9B9373422F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F70488F5-1067-4661-9801-9B9373422F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E501EE-3303-42A3-8BE3-792EF44C91BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E501EE-3303-42A3-8BE3-792EF44C91BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E501EE-3303-42A3-8BE3-792EF44C91BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E501EE-3303-42A3-8BE3-792EF44C91BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
