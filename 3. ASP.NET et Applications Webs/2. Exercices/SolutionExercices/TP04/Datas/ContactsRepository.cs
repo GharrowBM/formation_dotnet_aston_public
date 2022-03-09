@@ -36,6 +36,20 @@ namespace TP04.Datas
             return _context.Contacts.FirstOrDefault(x => x.Id == id);
         }
 
+        public Contact GetByName(string name)
+        {
+            return _context.Contacts.FirstOrDefault(x => x.Lastname == name);
+        }
+
+        public List<Contact> FilterByName(string start)
+        {
+            var list = new List<Contact>();
+
+            list.AddRange(_context.Contacts.Where(x => x.Fullname.StartsWith(start)).ToList());
+
+            return list;
+        }
+
         public Contact Update(int id, Contact entity)
         {
             Contact contactToEdit = GetById(id);
