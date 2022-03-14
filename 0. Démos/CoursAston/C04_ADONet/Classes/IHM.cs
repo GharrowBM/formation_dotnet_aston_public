@@ -10,7 +10,13 @@ namespace C04_ADONet.Classes
 {
     internal class IHM
     {
-        private string connectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=ASTON_DEMO_C04;Integrated Security=True";
+        private string _connectionString;
+
+        public IHM(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public void Run()
         {
             InitDb();
@@ -52,7 +58,7 @@ namespace C04_ADONet.Classes
         }
         private void InitDb()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=C04_ASTON_Demo;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(_connectionString);
 
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'masters'";
@@ -119,7 +125,7 @@ namespace C04_ADONet.Classes
             Console.WriteLine("=== Liste des Chiens ===\n");
 
 
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new SqlConnection(_connectionString);
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT dogs.Id, Name, CollarColor, NbrOfLegs, masters.FirstName, masters.LastName FROM dogs INNER JOIN masters ON dogs.MasterId = masters.Id;";
 
@@ -164,7 +170,7 @@ namespace C04_ADONet.Classes
             int dogMasterId = 1;
             int.TryParse(Console.ReadLine(), out dogMasterId);
 
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new SqlConnection(_connectionString);
             SqlCommand cmd = connection.CreateCommand();
 
             cmd.CommandText = "INSERT INTO dogs (Name, CollarColor, NbrOfLegs, MasterId) OUTPUT INSERTED.Id VALUES (@name, @collarColor, @nbrOfLegs, @masterId)";
@@ -205,7 +211,7 @@ namespace C04_ADONet.Classes
             Console.Write("ID du chien à éditer : ");
             int.TryParse(Console.ReadLine(), out dogId);
 
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new SqlConnection(_connectionString);
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT Name FROM dogs WHERE Id = @id;";
             cmd.Parameters.Add(new SqlParameter("@id", dogId));
@@ -270,7 +276,7 @@ namespace C04_ADONet.Classes
             Console.Write("ID du chien à supprimer : ");
             int.TryParse(Console.ReadLine(), out dogId);
 
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new SqlConnection(_connectionString);
             SqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT Name FROM dogs WHERE Id = @id;";
             cmd.Parameters.Add(new SqlParameter("@id", dogId));
