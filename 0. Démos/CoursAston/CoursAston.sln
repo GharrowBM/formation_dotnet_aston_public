@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C01_MesClasses", "C01_MesCl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C02_ASPNet", "C02_ASPNet\C02_ASPNet.csproj", "{5198F439-F309-48B6-AC6B-B13EF9AA2E00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C03_WebAPI", "C03_WebAPI\C03_WebAPI.csproj", "{D64DBA32-699C-435E-8DEE-DFD6C8785057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C03_WebAPI", "C03_WebAPI\C03_WebAPI.csproj", "{D64DBA32-699C-435E-8DEE-DFD6C8785057}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C04_ADONet", "C04_ADONet\C04_ADONet.csproj", "{B1DD8517-FCB1-4489-8F61-562A2D401D56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D64DBA32-699C-435E-8DEE-DFD6C8785057}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D64DBA32-699C-435E-8DEE-DFD6C8785057}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D64DBA32-699C-435E-8DEE-DFD6C8785057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1DD8517-FCB1-4489-8F61-562A2D401D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DD8517-FCB1-4489-8F61-562A2D401D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DD8517-FCB1-4489-8F61-562A2D401D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DD8517-FCB1-4489-8F61-562A2D401D56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
