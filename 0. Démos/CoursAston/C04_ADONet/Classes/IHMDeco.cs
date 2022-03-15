@@ -13,6 +13,8 @@ namespace C04_ADONet.Classes
         private SqlConnection _sqlConnection;
         private SqlDataAdapter _dogAdapter;
         private SqlDataAdapter _masterAdapter;
+        private SqlCommandBuilder _masterCommandBuilder;
+        private SqlCommandBuilder _dogCommandBuilder;
         private DataSet _dogDataset;
         private DataRelation masterId_IdMaster;
 
@@ -24,6 +26,10 @@ namespace C04_ADONet.Classes
             _dogDataset = new DataSet("dogs");
             _dogDataset.Tables.Add(new DataTable("dogs"));
             _dogDataset.Tables.Add(new DataTable("masters"));
+            _dogAdapter.SelectCommand = new SqlCommand("SELECT * from dogs;", _sqlConnection);
+            _masterAdapter.SelectCommand = new SqlCommand("SELECT * from masters;", _sqlConnection);
+            _dogCommandBuilder = new SqlCommandBuilder(_dogAdapter);
+            _masterCommandBuilder = new SqlCommandBuilder(_masterAdapter);
 
             LoadDatas();
         }
@@ -157,94 +163,130 @@ namespace C04_ADONet.Classes
 
         private void LoadDatas()
         {
-            try
-            {
-                Console.WriteLine("Ouverture de la connection...");
+            _sqlConnection.Open();
 
-                _sqlConnection.Open();
-                Console.WriteLine("Connection ouverte !");
+            _dogAdapter.Fill(_dogDataset, "dogs");
 
-                SqlCommand cmd = _sqlConnection.CreateCommand();
-                cmd.CommandText = "SELECT Id, Name, CollarColor, NbrOfLegs, MasterId FROM dogs;";
-                _dogAdapter.SelectCommand = cmd;
-                _dogAdapter.Fill(_dogDataset.Tables["dogs"]);
-                _dogAdapter.TableMappings.Add("dogs", "dogs");
-                _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrement = true;
-                _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrementSeed = _dogDataset.Tables["dogs"].Rows.Count + 1;
-                _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrementStep = 1;
+            _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrement = true;
+            _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrementSeed = _dogDataset.Tables["dogs"].Rows.Count + 1;
+            _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrementStep = 1;
+            _dogDataset.Tables["dogs"].PrimaryKey = new DataColumn[] { _dogDataset.Tables["dogs"].Columns["Id"] };
 
-                SqlCommand cmd2 = _sqlConnection.CreateCommand();
-                cmd2.CommandText = "SELECT Id, Firstname, Lastname FROM masters;";
-                _masterAdapter.SelectCommand = cmd2;
-                _masterAdapter.Fill(_dogDataset.Tables["masters"]);
-                _masterAdapter.TableMappings.Add("masters", "masters");
-                _dogDataset.Tables["masters"].Columns["Id"].AutoIncrement = true;
-                _dogDataset.Tables["masters"].Columns["Id"].AutoIncrementSeed = _dogDataset.Tables["masters"].Rows.Count + 1;
-                _dogDataset.Tables["masters"].Columns["Id"].AutoIncrementStep = 1;
+            _masterAdapter.Fill(_dogDataset, "masters");
 
-                Console.WriteLine("Création des relations...");
+            _dogDataset.Tables["masters"].Columns["Id"].AutoIncrement = true;
+            _dogDataset.Tables["masters"].Columns["Id"].AutoIncrementSeed = _dogDataset.Tables["masters"].Rows.Count + 1;
+            _dogDataset.Tables["masters"].Columns["Id"].AutoIncrementStep = 1;
+            _dogDataset.Tables["masters"].PrimaryKey = new DataColumn[] { _dogDataset.Tables["masters"].Columns["Id"] };
 
-                DataColumn masterId = _dogDataset.Tables["dogs"].Columns["MasterId"];
-                DataColumn idMaster = _dogDataset.Tables["masters"].Columns["Id"];
-                masterId_IdMaster = new DataRelation("MasterId_IdMaster", idMaster, masterId);
-                _dogDataset.Relations.Add(masterId_IdMaster);
+            masterId_IdMaster = new DataRelation("MasterId_IdMaster",
+                _dogDataset.Tables["masters"].Columns["Id"],
+                _dogDataset.Tables["dogs"].Columns["MasterId"]);
 
-                Console.WriteLine("Relations créées !");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"{ex} : {ex.Message}");
-            }
-            finally
-            {
-                Console.WriteLine("Fermeture de la connection...");
+            _dogDataset.Relations.Add(masterId_IdMaster);
 
-                _sqlConnection.Close();
-                Console.WriteLine("Connection fermée !");
-            }
+            //try
+            //{
+            //    Console.WriteLine("Ouverture de la connection...");
+
+            //    _sqlConnection.Open();
+            //    Console.WriteLine("Connection ouverte !");
+
+            //    SqlCommand cmd = _sqlConnection.CreateCommand();
+            //    cmd.CommandText = "SELECT Id, Name, CollarColor, NbrOfLegs, MasterId FROM dogs;";
+            //    _dogAdapter.SelectCommand = cmd;
+            //    _dogAdapter.Fill(_dogDataset.Tables["dogs"]);
+            //    _dogAdapter.TableMappings.Add("dogs", "dogs");
+            //    _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrement = true;
+            //    _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrementSeed = _dogDataset.Tables["dogs"].Rows.Count + 1;
+            //    _dogDataset.Tables["dogs"].Columns["Id"].AutoIncrementStep = 1;
+            //    _dogDataset.Tables["dogs"].PrimaryKey = new DataColumn[] {_dogDataset.Tables["dogs"].Columns["Id"]};
+
+            //    SqlCommand cmd2 = _sqlConnection.CreateCommand();
+            //    cmd2.CommandText = "SELECT Id, Firstname, Lastname FROM masters;";
+            //    _masterAdapter.SelectCommand = cmd2;
+            //    _masterAdapter.Fill(_dogDataset.Tables["masters"]);
+            //    _masterAdapter.TableMappings.Add("masters", "masters");
+            //    _dogDataset.Tables["masters"].Columns["Id"].AutoIncrement = true;
+            //    _dogDataset.Tables["masters"].Columns["Id"].AutoIncrementSeed = _dogDataset.Tables["masters"].Rows.Count + 1;
+            //    _dogDataset.Tables["masters"].Columns["Id"].AutoIncrementStep = 1;
+            //    _dogDataset.Tables["masters"].PrimaryKey = new DataColumn[] {_dogDataset.Tables["masters"].Columns["Id"]};
+
+            //    Console.WriteLine("Création des relations...");
+
+            //    DataColumn masterId = _dogDataset.Tables["dogs"].Columns["MasterId"];
+            //    DataColumn idMaster = _dogDataset.Tables["masters"].Columns["Id"];
+            //    masterId_IdMaster = new DataRelation("MasterId_IdMaster", idMaster, masterId);
+            //    _dogDataset.Relations.Add(masterId_IdMaster);
+
+            //    Console.WriteLine("Relations créées !");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"{ex} : {ex.Message}");
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Fermeture de la connection...");
+
+            //    _sqlConnection.Close();
+            //    Console.WriteLine("Connection fermée !");
+            //}
         }
 
         private void SaveDatas()
         {
-            SqlCommand insertDog = new SqlCommand("INSERT INTO dogs (Name, CollarColor, NbrOfLegs, MasterId) VALUES (@name, @collarColor, @nbrOfLegs, @masterId);", _sqlConnection);
-            insertDog.Parameters.Add("@name", SqlDbType.NVarChar, 50, "Name");
-            insertDog.Parameters.Add("@collarColor", SqlDbType.NVarChar, 50, "CollarColor");
-            insertDog.Parameters.Add("@nbrOfLegs", SqlDbType.Int, 11, "NbrOfLegs");
-            insertDog.Parameters.Add("@masterId", SqlDbType.Int, 11, "MasterId");
-            
-            SqlCommand updateDog = new SqlCommand("UPDATE dogs SET Name = @name, CollarColor = @collarColor, NbrOfLegs = @nbrOfLegs, MasterId = @masterId WHERE Id = @id;", _sqlConnection);
-            updateDog.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
-            updateDog.Parameters.Add("@name", SqlDbType.NVarChar, 50, "Name");
-            updateDog.Parameters.Add("@collarColor", SqlDbType.NVarChar, 50, "CollarColor");
-            updateDog.Parameters.Add("@nbrOfLegs", SqlDbType.Int, 11, "NbrOfLegs");
-            updateDog.Parameters.Add("@masterId", SqlDbType.Int, 11, "MasterId");
-
-            SqlCommand deleteDog = new SqlCommand("DELETE FROM dogs WHERE Id = @id;", _sqlConnection);
-            deleteDog.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
-
-            _dogAdapter.InsertCommand = insertDog;
-            _dogAdapter.UpdateCommand = updateDog;
-            _dogAdapter.DeleteCommand = deleteDog;
+            _dogAdapter.InsertCommand = _dogCommandBuilder.GetInsertCommand();
+            _dogAdapter.UpdateCommand = _dogCommandBuilder.GetUpdateCommand();
+            _dogAdapter.DeleteCommand = _dogCommandBuilder.GetDeleteCommand();
 
             _dogAdapter.Update(_dogDataset, "dogs");
 
-            SqlCommand insertMaster = new SqlCommand("INSERT INTO masers (Firstname, Lastname) VALUES (@firstname, @lastname);", _sqlConnection);
-            insertMaster.Parameters.Add("@firstname", SqlDbType.NVarChar, 50, "Firstname");
-            insertMaster.Parameters.Add("@lastname", SqlDbType.NVarChar, 50, "Lastname");
+            _masterAdapter.InsertCommand = _masterCommandBuilder.GetInsertCommand();
+            _masterAdapter.UpdateCommand = _masterCommandBuilder.GetUpdateCommand();
+            _masterAdapter.DeleteCommand = _masterCommandBuilder.GetDeleteCommand();
 
-            SqlCommand updateMaster = new SqlCommand("UPDATE masters SET Firstname = @firstname, Lastname = @lastname WHERE Id = @id;", _sqlConnection);
-            updateMaster.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
-            updateMaster.Parameters.Add("@firstname", SqlDbType.NVarChar, 50, "Firstname");
-            updateMaster.Parameters.Add("@lastname", SqlDbType.NVarChar, 50, "Lastname");
+            _dogAdapter.Update(_dogDataset, "masters");
 
-            SqlCommand deleteMaster = new SqlCommand("DELETE FROM masters WHERE Id = @id;", _sqlConnection);
-            deleteMaster.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
+            //SqlCommand insertDog = new SqlCommand("INSERT INTO dogs (Name, CollarColor, NbrOfLegs, MasterId) VALUES (@name, @collarColor, @nbrOfLegs, @masterId);", _sqlConnection);
+            //insertDog.Parameters.Add("@name", SqlDbType.NVarChar, 50, "Name");
+            //insertDog.Parameters.Add("@collarColor", SqlDbType.NVarChar, 50, "CollarColor");
+            //insertDog.Parameters.Add("@nbrOfLegs", SqlDbType.Int, 11, "NbrOfLegs");
+            //insertDog.Parameters.Add("@masterId", SqlDbType.Int, 11, "MasterId");
+            
+            //SqlCommand updateDog = new SqlCommand("UPDATE dogs SET Name = @name, CollarColor = @collarColor, NbrOfLegs = @nbrOfLegs, MasterId = @masterId WHERE Id = @id;", _sqlConnection);
+            //updateDog.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
+            //updateDog.Parameters.Add("@name", SqlDbType.NVarChar, 50, "Name");
+            //updateDog.Parameters.Add("@collarColor", SqlDbType.NVarChar, 50, "CollarColor");
+            //updateDog.Parameters.Add("@nbrOfLegs", SqlDbType.Int, 11, "NbrOfLegs");
+            //updateDog.Parameters.Add("@masterId", SqlDbType.Int, 11, "MasterId");
 
-            _masterAdapter.InsertCommand = insertMaster;
-            _masterAdapter.UpdateCommand = updateMaster;
-            _masterAdapter.DeleteCommand = deleteMaster;
+            //SqlCommand deleteDog = new SqlCommand("DELETE FROM dogs WHERE Id = @id;", _sqlConnection);
+            //deleteDog.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
 
-            _masterAdapter.Update(_dogDataset, "masters");
+            //_dogAdapter.InsertCommand = insertDog;
+            //_dogAdapter.UpdateCommand = updateDog;
+            //_dogAdapter.DeleteCommand = deleteDog;
+
+            //_dogAdapter.Update(_dogDataset, "dogs");
+
+            //SqlCommand insertMaster = new SqlCommand("INSERT INTO masers (Firstname, Lastname) VALUES (@firstname, @lastname);", _sqlConnection);
+            //insertMaster.Parameters.Add("@firstname", SqlDbType.NVarChar, 50, "Firstname");
+            //insertMaster.Parameters.Add("@lastname", SqlDbType.NVarChar, 50, "Lastname");
+
+            //SqlCommand updateMaster = new SqlCommand("UPDATE masters SET Firstname = @firstname, Lastname = @lastname WHERE Id = @id;", _sqlConnection);
+            //updateMaster.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
+            //updateMaster.Parameters.Add("@firstname", SqlDbType.NVarChar, 50, "Firstname");
+            //updateMaster.Parameters.Add("@lastname", SqlDbType.NVarChar, 50, "Lastname");
+
+            //SqlCommand deleteMaster = new SqlCommand("DELETE FROM masters WHERE Id = @id;", _sqlConnection);
+            //deleteMaster.Parameters.Add("@id", SqlDbType.Int, 11, "Id");
+
+            //_masterAdapter.InsertCommand = insertMaster;
+            //_masterAdapter.UpdateCommand = updateMaster;
+            //_masterAdapter.DeleteCommand = deleteMaster;
+
+            //_masterAdapter.Update(_dogDataset, "masters");
         }
     }
 }
