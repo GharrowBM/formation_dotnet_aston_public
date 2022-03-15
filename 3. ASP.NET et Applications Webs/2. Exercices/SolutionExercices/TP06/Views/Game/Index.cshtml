@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "JDR Rollz2.0";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <input type="text" id="characterName" class="form-control" placeholder="Nom du personnage" />
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-4 offset-1 row justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <button style="width: 100%" class="btn btn-outline-info" id="strBtn">FOR</button>
+                    <button style="width: 100%" class="btn btn-outline-info" id="dexBtn">DEX</button>
+                    <button style="width: 100%" class="btn btn-outline-info" id="conBtn">CON</button>
+                </div>
+                <div class="col-md-6">
+                    <button style="width: 100%" class="btn btn-outline-info" id="intBtn">INT</button>
+                    <button style="width: 100%" class="btn btn-outline-info" id="wisBtn">WIS</button>
+                    <button style="width: 100%" class="btn btn-outline-info" id="chaBtn">CHA</button>
+                </div>
+            </div>
+
+            <div class="col-md-4 offset-1 row justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <button style="width: 100%" class="btn btn-outline-warning" id="dice4Btn">d4</button>
+                    <button style="width: 100%" class="btn btn-outline-warning" id="dice6Btn">d6</button>
+                    <button style="width: 100%" class="btn btn-outline-warning" id="dice8Btn">d8</button>
+                </div>
+                <div class="col-md-6">
+                    <button style="width: 100%" class="btn btn-outline-warning" id="dice10Btn">d10</button>
+                    <button style="width: 100%" class="btn btn-outline-warning" id="dice12Btn">d12</button>
+                    <button style="width: 100%" class="btn btn-outline-warning" id="dice20Btn">d20</button>
+                </div>
+
+                <div class="col-md-12">
+                    <button style="width: 100%" class="btn btn-outline-warning" id="dice100Btn">d100</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-6 offset-3 row align-items-center">
+                <div class="col text-center">
+                    <i class="bi bi-plus-circle text-secondary"></i>
+                </div>
+                <div class="col col-md-10">
+                    <input type="number" id="modifier" class="form-control" placeholder="Modificateur" />
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="col-md-6 offset-3 row align-items-center">
+            <span class="col text-end"><i class="bi text-danger"></i> Attaquer : </span>
+            <select class="form-select col" id="targetSelect" class="form-control">
+                <option value="0">Aucun (CA 10)</option>
+                <option value="1">Loup (CA 14)</option>
+                <option value="2">Mort-vivant (CA 08)</option>
+                <option value="3">Ogre (CA 15)</option>
+            </select>
+            <button id="attackTargetBtn" class="col btn btn-outline-danger"><i class="bi bi-lightning"></i></button>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <ul id="rollsList" class="list-unstyled">
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts{
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/game.js"></script>
+    }

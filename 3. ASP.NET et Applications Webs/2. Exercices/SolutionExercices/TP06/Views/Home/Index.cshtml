@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="form-group">
+            <label class="form-label">Utilisateur :</label>
+            <input type="text" id="userInput" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Message :</label>
+            <textarea id="messageInput" class="form-control" style="min-height: 100px"></textarea>
+        </div>
+        <br />
+        <button class="btn btn-outline-primary float-end" id="sendButton"><i class="bi bi-send"></i> Envoyer</button>
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <ul class="list-unstyled" id="messagesList">
+        </ul>
+    </div>
+</div>
+
+@section Scripts{
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+}

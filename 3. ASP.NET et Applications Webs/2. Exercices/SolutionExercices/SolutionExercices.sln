@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP04", "TP04\TP04.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP05", "TP05\TP05.csproj", "{80EAA41D-370D-405D-B82E-EC5DED3857F7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP06", "TP06\TP06.csproj", "{B60F4127-5FC0-45A8-8E45-925220DE9AA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{80EAA41D-370D-405D-B82E-EC5DED3857F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80EAA41D-370D-405D-B82E-EC5DED3857F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80EAA41D-370D-405D-B82E-EC5DED3857F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60F4127-5FC0-45A8-8E45-925220DE9AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60F4127-5FC0-45A8-8E45-925220DE9AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60F4127-5FC0-45A8-8E45-925220DE9AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60F4127-5FC0-45A8-8E45-925220DE9AA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

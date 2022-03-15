@@ -6,4 +6,5 @@ var config = new ConfigurationBuilder()
     .AddUserSecrets<Program>()
     .Build();
 
-new IHM(config.GetConnectionString("Default")).Run();
+//new IHM(config.GetConnectionString("Default")).Run();
+new IHMDeco(config.GetConnectionString("Default")).Run();
