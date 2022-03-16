@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C03_WebAPI", "C03_WebAPI\C0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C04_ADONet", "C04_ADONet\C04_ADONet.csproj", "{B1DD8517-FCB1-4489-8F61-562A2D401D56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C05_EFCore", "C05_EFCore\C05_EFCore.csproj", "{7E6C4967-F2C6-4E53-9C05-09661D3A215A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B1DD8517-FCB1-4489-8F61-562A2D401D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1DD8517-FCB1-4489-8F61-562A2D401D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1DD8517-FCB1-4489-8F61-562A2D401D56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6C4967-F2C6-4E53-9C05-09661D3A215A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6C4967-F2C6-4E53-9C05-09661D3A215A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6C4967-F2C6-4E53-9C05-09661D3A215A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6C4967-F2C6-4E53-9C05-09661D3A215A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

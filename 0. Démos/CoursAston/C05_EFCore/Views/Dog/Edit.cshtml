@@ -1,0 +1,36 @@
+﻿@model Dog
+@{
+    ViewData["Title"] = "Modifier un chien";
+}
+<div class="row">
+    <div class="col-md-10 offset-1">
+         <h3>Modifier un chien</h3>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <input hidden asp-for="Id" />
+
+            <div class="mb-2 row">
+                <label asp-for="Name"></label>
+                <input class="form-control" asp-for="Name" />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="Age"></label>
+                <input class="form-control" asp-for="Age" />
+                <span class="text-danger" asp-validation-for="Age"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="CollarColor"></label>
+                <select class="form-select" asp-for="CollarColor" asp-items="@Html.GetEnumSelectList<CollarColor>()"></select>
+                <span class="text-danger" asp-validation-for="CollarColor"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Editer</button>
+
+        </form>
+    </div>
+</div>
