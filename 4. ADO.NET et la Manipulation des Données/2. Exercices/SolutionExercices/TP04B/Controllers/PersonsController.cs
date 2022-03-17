@@ -105,7 +105,7 @@ namespace TP04B.Controllers
                 found.Lastname = person.Lastname;
                 found.Email = person.Email;
                 found.Phone = person.Phone;
-                found.AdressId = person.AdressId == 0 ? null : found.AdressId;
+                found.AdressId = person.AdressId == 0 ? null : person.AdressId;
 
 
                 _context.People.Update(found);
