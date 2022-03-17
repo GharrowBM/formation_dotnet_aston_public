@@ -1,0 +1,52 @@
+﻿@model Adress
+@{
+    ViewData["Title"] = "Ajouter une adresse";
+}
+
+<div class="row">
+    <div class="col-md-10 offset-1">
+        <h3>Ajouter une adresse</h3>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-2">
+                <label asp-for="StreetNumber"></label>
+                <input asp-for="StreetNumber" class="form-control" />
+                <span asp-validation-for="StreetNumber" class="text-danger"></span>
+            </div>
+
+                <div class="mb-2">
+                <label asp-for="StreetName"></label>
+                <input asp-for="StreetName" class="form-control" />
+                <span asp-validation-for="StreetName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-2">
+                <label asp-for="PostalCode"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="mb-2">
+                <label asp-for="CityName"></label>
+                <input asp-for="CityName" class="form-control" />
+                <span asp-validation-for="CityName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-2">
+                <label asp-for="RegionName"></label>
+                <input asp-for="RegionName" class="form-control" />
+                <span asp-validation-for="RegionName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-2">
+                <label asp-for="CountryName"></label>
+                <input asp-for="CountryName" class="form-control" />
+                <span asp-validation-for="CountryName" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Ajouter</button>
+        </form>
+    </div>
+</div>

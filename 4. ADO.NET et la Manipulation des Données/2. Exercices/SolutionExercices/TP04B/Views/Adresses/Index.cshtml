@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Adress>
+@{
+    ViewData["Title"] = "Liste des adresses";
+}
+
+<div class="row">
+    <div class="col-md-10 offset-1">
+        <h3>Liste des adresses</h3>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id.</th>
+                    <th>Adresse</th>
+                    <th>Liste des habitants</th>
+                    <th>Nombre d'habitants</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">@item.Id</td>
+                        <td class="align-middle">@item.FullAdress</td>
+                        <td class="align-middle">
+                            <ul>
+                                @foreach(var person in item.Persons)
+                                {
+                                    <li>@person.Fullname</li>
+                                }
+                            </ul>
+                        </td>
+                        <td class="align-middle">@item.Persons.ToList().Count</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info">Editer</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+        <a asp-action="Create" class="btn-outline-success btn">Nouvelle adresse</a>
+    </div>
+</div>
+

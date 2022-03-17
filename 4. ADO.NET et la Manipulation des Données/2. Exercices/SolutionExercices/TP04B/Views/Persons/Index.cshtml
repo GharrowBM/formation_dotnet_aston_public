@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Person>
+@{
+    ViewData["Title"] = "Liste des personnes";
+}
+
+<div class="row">
+    <div class="col-md-10 offset-1">
+        @if(ViewBag.Homelesses is not null)
+        {
+            <div type="alert" class="alert alert-danger">
+                Attention, il y a @ViewBag.Homelesses.Count personnes sans adresses
+            </div>
+                
+        }
+        <h3>Liste des personnes</h3>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id.</th>
+                    <th>Nom complet</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+                    <th>Adresse</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">@item.Id</td>
+                        <td class="align-middle">@item.Fullname</td>
+                        <td class="align-middle">@item.Phone</td>
+                        <td class="align-middle">@item.Email</td>
+                        <td class="align-middle">
+                            @(item.Adress == null ? "Sans adresse" : item.Adress.FullAdress)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info">Editer</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+        <a asp-action="Create" class="btn-outline-success btn">Nouvelle personne</a>
+    </div>
+</div>
+
