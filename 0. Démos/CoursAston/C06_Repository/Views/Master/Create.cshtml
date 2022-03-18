@@ -1,0 +1,46 @@
+﻿@model Master
+@{
+    ViewData["Title"] = "Ajouter un maître";
+}
+<div class="row">
+    <div class="col-md-10 offset-1">
+         <h3>Ajouter un maître</h3>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-2 row">
+                <label asp-for="Firstname"></label>
+                <input class="form-control" asp-for="Firstname" />
+                <span class="text-danger" asp-validation-for="Firstname"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="Lastname"></label>
+                <input class="form-control" asp-for="Lastname" />
+                <span class="text-danger" asp-validation-for="Lastname"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="Phone"></label>
+                <input class="form-control" asp-for="Phone" />
+                <span class="text-danger" asp-validation-for="Phone"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="Email"></label>
+                <input class="form-control" asp-for="Email" />
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="AdressId"></label>
+                <select class="form-select" asp-for="AdressId" asp-items="@ViewBag.Adresses"></select>
+                <span class="text-danger" asp-validation-for="AdressId"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Ajouter</button>
+
+        </form>
+    </div>
+</div>

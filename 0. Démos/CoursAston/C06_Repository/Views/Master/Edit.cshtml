@@ -1,0 +1,48 @@
+﻿@model Master
+@{
+    ViewData["Title"] = "Modifier un maître";
+}
+<div class="row">
+    <div class="col-md-10 offset-1">
+         <h3>Modifier un maître</h3>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input hidden asp-for="Id" />
+
+            <div class="mb-2 row">
+                <label asp-for="Firstname"></label>
+                <input class="form-control" asp-for="Firstname" />
+                <span class="text-danger" asp-validation-for="Firstname"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="Lastname"></label>
+                <input class="form-control" asp-for="Lastname" />
+                <span class="text-danger" asp-validation-for="Lastname"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="Phone"></label>
+                <input class="form-control" asp-for="Phone" />
+                <span class="text-danger" asp-validation-for="Phone"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="Email"></label>
+                <input class="form-control" asp-for="Email" />
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="AdressId"></label>
+                <select class="form-select" asp-for="AdressId" asp-items="@ViewBag.Adresses"></select>
+                <span class="text-danger" asp-validation-for="AdressId"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Editer</button>
+
+        </form>
+    </div>
+</div>

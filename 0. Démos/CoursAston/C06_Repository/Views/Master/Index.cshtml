@@ -1,0 +1,40 @@
+﻿@model List<Master>
+
+@{
+    ViewData["Title"] = "Liste des maîtres";
+}
+
+<div class="row">
+    <h3>Liste des maîtres</h3>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id.</th>
+                <th>Nom complet</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Fullname</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Email</td>
+                    <td>@item.Adress.FullAdress</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info">Editer</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+    <a class="btn btn-success" asp-action="Create">Nouveau maître</a>
+</div>

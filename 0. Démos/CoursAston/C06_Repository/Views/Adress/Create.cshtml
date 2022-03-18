@@ -1,0 +1,39 @@
+﻿@model Adress
+@{
+    ViewData["Title"] = "Ajouter une adresse";
+}
+<div class="row">
+    <div class="col-md-10 offset-1">
+         <h3>Ajouter une adresse</h3>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-2 row">
+                <label asp-for="StreetNumber"></label>
+                <input class="form-control" asp-for="StreetNumber" />
+                <span class="text-danger" asp-validation-for="StreetNumber"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="StreetName"></label>
+                <input class="form-control" asp-for="StreetName" />
+                <span class="text-danger" asp-validation-for="StreetName"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="PostalCode"></label>
+                <input class="form-control" asp-for="PostalCode" />
+                <span class="text-danger" asp-validation-for="PostalCode"></span>
+            </div>
+
+            <div class="mb-2 row">
+                <label asp-for="CityName"></label>
+                <input class="form-control" asp-for="CityName" />
+                <span class="text-danger" asp-validation-for="CityName"></span>
+            </div>
+            <button type="submit" class="btn btn-success">Ajouter</button>
+
+        </form>
+    </div>
+</div>
