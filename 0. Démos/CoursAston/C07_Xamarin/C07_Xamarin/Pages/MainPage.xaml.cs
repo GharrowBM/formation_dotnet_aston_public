@@ -15,6 +15,13 @@ namespace C07_Xamarin.Pages
         public MainPage()
         {
             InitializeComponent();
+
+            //pickerDemo.ItemSource = new List<string>()
+            //{
+            //    "Blabla",
+            //    "Titi",
+            //    "Toto"
+            //};
         }
 
         private void loginButton_Clicked(object sender, EventArgs e)

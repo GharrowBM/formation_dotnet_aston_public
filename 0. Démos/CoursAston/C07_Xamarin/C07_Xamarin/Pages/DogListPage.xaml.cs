@@ -24,7 +24,6 @@ namespace C07_Xamarin.Pages
             base.OnAppearing();
 
             List<Dog> list = new List<Dog>();
-            Dog dogToDelete = list.FirstOrDefault();
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
