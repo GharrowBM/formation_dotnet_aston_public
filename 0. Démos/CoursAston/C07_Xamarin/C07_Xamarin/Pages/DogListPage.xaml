@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C07_Xamarin.Pages.DogListPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="addDogButton" 
+                     Text="+ Add" 
+                     Clicked="addDogButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="dogsListView"
+                      Margin="10"
+                      HasUnevenRows="True"
+                      ItemSelected="dogsListView_ItemSelected"
+                      SeparatorColor="DodgerBlue">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Description}" TextColor="DodgerBlue"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

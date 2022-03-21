@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C07_Xamarin.Pages.AddDogPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Ajouter un chien"
+                   HorizontalTextAlignment="Center"
+                   TextColor="DodgerBlue"
+                   FontSize="Large"
+                   FontFamily="Oswald"/>
+            <Entry x:Name="dogNameEntry"
+                   Placeholder="Nom du chien"/>
+            <Entry x:Name="dogDescEntry"
+                   Placeholder="Description du chien"/>
+            <Button x:Name="addDogButton"
+                    HorizontalOptions="End"
+                    Text="Save"
+                    BackgroundColor="DodgerBlue"
+                    FontAttributes="Bold"
+                    Clicked="addDogButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
