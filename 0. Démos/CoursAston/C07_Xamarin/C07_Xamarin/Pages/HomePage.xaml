@@ -5,11 +5,10 @@
             xmlns:local="clr-namespace:C07_Xamarin.Pages"
              x:Class="C07_Xamarin.Pages.HomePage"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackgroundColor="DodgerBlue"
-            BarTextColor="White">
+            BarBackgroundColor="{StaticResource mainColor01}">
     
   <local:DogListPage Title="Chiens" IconImageSource="Dog_Icon.png"/>
   <local:MasterListPage Title="Maîtres" IconImageSource="Master_Icon.png"/>
-  <local:AdressesListPage Title="Adresses" IconImageSource="Adress_Icon.png"/>
+  <local:AddressesListPage Title="Addresses" IconImageSource="Address_Icon.png"/>
     
 </TabbedPage>

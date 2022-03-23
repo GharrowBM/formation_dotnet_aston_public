@@ -19,12 +19,31 @@ namespace C07_Xamarin.Pages
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var collarColorList = Enum.GetValues(typeof(CollarColor)).Cast<CollarColor>().ToList();
+            collarColorPicker.ItemsSource = collarColorList;
+            collarColorPicker.SelectedIndex = 0;
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<Master>();
+                var masters = conn.Table<Master>().ToList();
+                masterPicker.ItemsSource = masters;
+                masterPicker.SelectedIndex = 0;
+            }
+        }
+
         private void addDogButton_Clicked(object sender, EventArgs e)
         {
             Dog newDog = new Dog
             {
-                Name = dogDescEntry.Text,
+                Name = dogNameEntry.Text,
                 Description = dogDescEntry.Text,
+                CollarColor = (CollarColor) collarColorPicker.SelectedItem,
+                MasterId = masterPicker.SelectedIndex
             };
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))

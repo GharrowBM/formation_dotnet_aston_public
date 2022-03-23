@@ -12,9 +12,9 @@ using Xamarin.Forms.Xaml;
 namespace C07_Xamarin.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterListPage : ContentPage
+    public partial class AddressesListPage : ContentPage
     {
-        public MasterListPage()
+        public AddressesListPage()
         {
             InitializeComponent();
         }
@@ -25,21 +25,21 @@ namespace C07_Xamarin.Pages
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
-                conn.CreateTable<Master>();
-                mastersListView.ItemsSource = conn.Table<Master>().ToList();
+                conn.CreateTable<Address>();
+                addressesListView.ItemsSource = conn.Table<Address>().ToList();
             }
         }
 
-        private void addMasterTBI_Clicked(object sender, EventArgs e)
+        private void addAddressTBI_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddMasterPage());
+            Navigation.PushAsync(new AddAddressPage());
         }
 
-        private void mastersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void addressesListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Master selectedMaster = (Master) mastersListView.SelectedItem;
-            
-            Navigation.PushAsync(new EditMasterPage(selectedMaster));
+            Address selectedAddress = (Address) addressesListView.SelectedItem;
+
+            Navigation.PushAsync(new EditAddressPage(selectedAddress));
         }
     }
 }

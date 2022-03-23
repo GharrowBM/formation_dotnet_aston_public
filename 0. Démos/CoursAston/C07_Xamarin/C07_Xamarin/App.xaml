@@ -3,6 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C07_Xamarin.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="mainBGColor01">#232121</Color>
+            <Color x:Key="mainColor01">#7C2E15</Color>
+            <Color x:Key="mainColor01wTransparency">#CC7C2E15</Color>
+            <Color x:Key="mainButtonColor01">#C66921</Color>
+            <Color x:Key="mainButtonTextColor01">#C8DEE4</Color>
+            <Color x:Key="mainLabelTextColor01">#E9D5BD</Color>
 
+            <Style TargetType="NavigationPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource mainBGColor01}"/>
+                <Setter Property="BarBackgroundColor" Value="{StaticResource mainColor01}"/>
+                <Setter Property="BarTextColor" Value="{StaticResource mainButtonTextColor01}"/>
+            </Style>
+            
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource mainColor01}"/>
+                <Setter Property="TextColor" Value="{StaticResource mainButtonTextColor01}"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="Image" x:Key="ThumbnailImage">
+                <Setter Property="HeightRequest" Value="150"/>
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="Aspect" Value="AspectFit"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="H1Label">
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="FontFamily" Value="Oswald"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="{StaticResource mainLabelTextColor01}"/>
+                <Setter Property="Margin" Value="0,10"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource mainColor01wTransparency}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="250"/>
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="250"/>
+            </Style>
+
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="250"/>
+            </Style>
+
+            <Style TargetType="ListView" x:Key="BasicListView">
+                <Setter Property="SeparatorColor" Value="{StaticResource mainColor01}"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

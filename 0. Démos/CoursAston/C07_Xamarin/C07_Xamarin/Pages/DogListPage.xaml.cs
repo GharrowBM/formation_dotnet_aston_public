@@ -24,6 +24,7 @@ namespace C07_Xamarin.Pages
             base.OnAppearing();
 
             List<Dog> list = new List<Dog>();
+            Dog dogToDelete = list.FirstOrDefault();
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
@@ -38,10 +39,10 @@ namespace C07_Xamarin.Pages
         {
             Dog selectedDog = dogsListView.SelectedItem as Dog;
 
-            DisplayAlert("Détails", selectedDog.Description, "Ok");
+            Navigation.PushAsync(new EditDogPage(selectedDog));
         }
 
-        private void addDogButton_Clicked(object sender, EventArgs e)
+        private void addDogTBI_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddDogPage());
         }

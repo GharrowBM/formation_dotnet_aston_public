@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C07_Xamarin.Pages.EditMasterPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Modifier un maître"
+                   Style="{StaticResource H1Label}"/>
+            <Entry x:Name="masterFirstNameEntry"
+                   Placeholder="Prénom du maître"/>
+            <Entry x:Name="masterLastNameEntry"
+                   Placeholder="Nom du maître"/>
+            <Entry x:Name="masterEmailEntry"
+                   Placeholder="Email du maître"
+                   Keyboard="Email"/>
+            <Entry x:Name="masterPhoneEntry"
+                   Placeholder="Téléphone du maître"
+                   Keyboard="Telephone"/>
+            <DatePicker x:Name="masterDOBPicker"/>
+            <Picker x:Name="masterAddressPicker"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,10">
+                <Button x:Name="editMasterButton"
+                    Text="Edit"
+                    Clicked="editMasterButton_Clicked"/>
+                <Button x:Name="delMasterButton"
+                    Text="Delete"
+                    Clicked="delMasterButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
