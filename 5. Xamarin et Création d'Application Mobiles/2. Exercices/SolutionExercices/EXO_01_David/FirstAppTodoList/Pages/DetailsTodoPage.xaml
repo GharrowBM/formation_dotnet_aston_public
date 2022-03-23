@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstAppTodoList.Pages.DetailsTodoPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit Todo"
+                     Clicked="ToolbarItem_Clicked">
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Frame CornerRadius="10" 
+               IsClippedToBounds="True"
+                HasShadow="True"
+                OutlineColor="WhiteSmoke" 
+                Padding="0"
+                BackgroundColor="#80FFEC" >
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            Android="10"
+                            iOS="10"/>
+            </Frame.Margin>
+
+            <StackLayout Margin="10">
+                <Label Text="Details Todo"
+                       HorizontalTextAlignment="Center"
+                       TextColor="#000000"
+                       FontSize="Large"
+                       FontFamily="Oswald"/>
+
+                <Entry x:Name="todoTitleEntry"
+                       Placeholder="Enter The Title" IsEnabled="False"/>
+
+                <Entry x:Name="todoDescriptionEntry"
+                       Placeholder="Enter The Description" IsEnabled="False"/>
+
+                <DatePicker x:Name="todoCreatedDateEntry" IsEnabled="False"/>
+
+                <Picker x:Name="UrgencePicker" IsEnabled="False"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Is Done ?"/>
+                    <CheckBox x:Name="IsDonneCheck" IsEnabled="False"/>
+                </StackLayout>
+
+
+                <Button x:Name="buttonListTodo"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#000000"
+                        Text="Go Back"
+                        TextColor="#80FFEC"
+                        FontAttributes="Bold"
+                        Clicked="buttonListTodo_Clicked"/>
+                
+                <Button x:Name="buttonDeleteTodo"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#D82148"
+                        Text="Delete Todo"
+                        TextColor="#80FFEC"
+                        FontAttributes="Bold"
+                        Clicked="buttonDeleteTodo_Clicked"/>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

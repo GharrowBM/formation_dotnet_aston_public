@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_01.Pages.AddTodoPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save"
+                     x:Name="saveToolbarItem"
+                     Clicked="saveToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="25" VerticalOptions="StartAndExpand">
+            <Entry x:Name="titleEntry"
+                   Style="{StaticResource mainEntry}"
+                   Placeholder="Titre"/>
+            <Entry x:Name="descEntry"
+                   Style="{StaticResource mainEntry}"
+                   Placeholder="Description"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

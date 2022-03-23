@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstAppTodoList.Pages.MainPage">
+    <ContentPage.Content>
+        <Frame CornerRadius="10"
+               IsClippedToBounds="True"
+                HasShadow="True"
+                Padding="0"
+                BackgroundColor="#80FFEC">
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            Android="10"
+                            iOS="10"/>
+            </Frame.Margin>
+            <StackLayout Margin="10" VerticalOptions="Center">
+                <Label Text="Connectez-vous" TextColor="#000000" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20" TranslationY="-80"/>
+                <Entry x:Name="loginEntry"
+                   Text="david@gmail.com"
+                   Placeholder="Email"
+                   Keyboard="Email"/>
+
+                <Entry x:Name="passwordEntry"
+                   Text="Password"
+                   IsPassword="True"/>
+
+                <Button x:Name="loginButton"
+                    CornerRadius="10"
+                    Text="Login"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="5"
+                    BackgroundColor="#000000"
+                    TextColor="#80FFEC"
+                    Clicked="loginButton_Clicked"/>
+
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstAppTodoList.Pages.EditTodoPage">
+    <ContentPage.Content>
+        <Frame CornerRadius="10" 
+               IsClippedToBounds="True"
+                HasShadow="True"
+                Padding="0"
+                BackgroundColor="#80FFEC" >
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            Android="10"
+                            iOS="10"/>
+            </Frame.Margin>
+            <StackLayout Margin="10">
+                <Label Text="Edit A Todo"
+                       HorizontalTextAlignment="Center"
+                       TextColor="DarkBlue"
+                       FontSize="Large"
+                       FontFamily="Oswald"/>
+
+                <Entry x:Name="todoTitleEntry"
+                       Placeholder="Enter The Title"/>
+
+                <Entry x:Name="todoDescriptionEntry"
+                       Placeholder="Enter The Description"/>
+
+                <DatePicker x:Name="todoCreatedDateEntry"/>
+
+                <Picker x:Name="UrgencePicker"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Is Done ?"/>
+                    <CheckBox x:Name="IsDonneCheck"/>
+                </StackLayout>
+
+
+                <Button x:Name="buttonEditTodo"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Save Todo"
+                    TextColor="#80FFEC"
+                    BackgroundColor="#000000"
+                    FontAttributes="Bold"
+                    Clicked="buttonEditTodo_Clicked"/>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

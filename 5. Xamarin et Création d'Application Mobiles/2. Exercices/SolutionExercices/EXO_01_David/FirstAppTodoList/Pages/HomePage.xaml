@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstAppTodoList.Pages.HomePage">
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Text="Add Todo"
+                     Clicked="ToolbarItem_Clicked">
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="todoListView"
+                      Margin="10"
+                      HasUnevenRows="True"
+                      ItemSelected="todoListView_ItemSelected"
+                      SeparatorColor="#80FFEC">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="10" 
+                                   HasShadow="True"
+                                   OutlineColor="WhiteSmoke" 
+                                   IsClippedToBounds="True"
+                                    Padding="0"
+                                    BackgroundColor="#80FFEC" 
+                                   Margin="{OnPlatform Android='10'}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.RowSpan="1" Text="{Binding Title}" TextColor="#000000" HorizontalOptions="Center" TextTransform="Uppercase" FontAttributes="Bold" Padding="5"/>
+
+                                    <Label Grid.Row="1"  Text="Description:" TextColor="#276368" FontAttributes="Bold,Italic"  TranslationX="10" Padding="5"/>
+                                    <Label Grid.Row="1"  Text="{Binding Description}" LineBreakMode="WordWrap" TextTransform="Uppercase" TranslationX="90" TextColor="#000000" Padding="5"/>
+
+                                    <Label Grid.Row="2"  Text="Is Important ? :" TextColor="#276368" FontAttributes="Bold,Italic"  TranslationX="10" Padding="5"/>
+                                    <Label Grid.Row="2"  Text="{Binding Urgence}" TranslationX="110" TextColor="#000000" Padding="5"/>
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

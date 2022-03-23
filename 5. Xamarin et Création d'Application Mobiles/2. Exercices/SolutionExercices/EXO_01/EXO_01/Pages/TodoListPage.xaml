@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_01.Pages.TodoListPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+ Add Todo"
+                     x:Name="addToolbarItem"
+                     Clicked="addToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ListView x:Name="todosListView" 
+                  ItemSelected="todosListView_ItemSelected"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Title}" TextColor="{StaticResource colorBlue01}" FontSize="Large" Grid.Row="0" Grid.Column="0" FontAttributes="Bold,Italic"/>
+                            <Label Text="{Binding Description}" TextColor="White" FontSize="Default" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontAttributes="Italic"/>
+                            <CheckBox IsChecked="{Binding IsDone}" IsEnabled="False" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_01.Pages.TodoDetailPage">
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Label x:Name="dateLabel"
+                   TextColor="{StaticResource textColor01}"/>
+            <Entry x:Name="titleEntry"
+                   Style="{StaticResource mainEntry}"/>
+            <Entry x:Name="descEntry"
+                   Style="{StaticResource mainEntry}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <Label Text="Terminée ?"
+                       TextColor="{StaticResource textColor01}" VerticalOptions="Center"/>
+                <CheckBox x:Name="statusCheckBox"
+                   Color="{StaticResource colorBlue01}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button x:Name="updateButton"
+                        Text="Editer"
+                        Style="{StaticResource mainButton}"
+                        Clicked="updateButton_Clicked"/>
+                <Button x:Name="deleteButton"
+                        Text="Supprimer"
+                        Style="{StaticResource mainButton}"
+                        Clicked="deleteButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
