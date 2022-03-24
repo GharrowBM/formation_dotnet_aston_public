@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:fftransf="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="TP01.Views.StartPage"
+             Title="Menu"
+             BackgroundColor="{StaticResource bgColMain}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout HeightRequest="100" Margin="0,10,0,0">
+                <ffSvg:SvgCachedImage 
+                    x:Name="star1"
+                    Source="resource://TP01.Assets.star.svg" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.5,0,30,30"/>
+                <ffSvg:SvgCachedImage  
+                    x:Name="star2"
+                    Source="resource://TP01.Assets.star.svg" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.4,0.25,30,30"/>
+                <ffSvg:SvgCachedImage  
+                    x:Name="star3"
+                    Source="resource://TP01.Assets.star.svg" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.6,0.25,30,30"/>
+                <ffSvg:SvgCachedImage  
+                    x:Name="star4"
+                    Source="resource://TP01.Assets.star.svg" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.4,0.75,30,30"/>
+                <ffSvg:SvgCachedImage  
+                    x:Name="star5"
+                    Source="resource://TP01.Assets.star.svg" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.6,0.75,30,30"/>
+                <ffSvg:SvgCachedImage  
+                    x:Name="star6"
+                    Source="resource://TP01.Assets.star.svg" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.5,1,30,30"/>
+            </AbsoluteLayout>
+            <StackLayout>
+                <Label Text="Nombre Mystère !"
+                       TextColor="White"
+                   FontFamily="Dongle"
+                   FontSize="50"
+                   HorizontalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,10" Padding="20">
+                    <Label Text="Difficulté : " VerticalOptions="Center" TextColor="White"/>
+                    <Picker ItemsSource="{Binding DifficultiesList}" SelectedItem="{Binding Difficulty}" TextColor="White" WidthRequest="100" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,25,0,0">
+                <Button Text="Commencer"
+                        x:Name="startButton"
+                    Style="{StaticResource Key=menuButton}"
+                    Command="{Binding StartNewGameCommand}"
+                    CommandParameter="{Binding Difficulty}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

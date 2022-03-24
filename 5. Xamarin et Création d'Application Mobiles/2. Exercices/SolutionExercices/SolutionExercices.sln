@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstAppTodoList", "EXO_01_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstAppTodoList.Android", "EXO_01_David\FirstAppTodoList.Android\FirstAppTodoList.Android.csproj", "{0D232AC3-7C41-4F7D-82B5-346343A6475F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP01", "TP01\TP01\TP01.csproj", "{7FD03F13-50B0-41CC-A295-62380A3C887E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP01.Android", "TP01\TP01.Android\TP01.Android.csproj", "{A07D1782-50D3-4B24-BFC3-FE9CE2A5ACFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,16 @@ Global
 		{0D232AC3-7C41-4F7D-82B5-346343A6475F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D232AC3-7C41-4F7D-82B5-346343A6475F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D232AC3-7C41-4F7D-82B5-346343A6475F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7FD03F13-50B0-41CC-A295-62380A3C887E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD03F13-50B0-41CC-A295-62380A3C887E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD03F13-50B0-41CC-A295-62380A3C887E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD03F13-50B0-41CC-A295-62380A3C887E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A07D1782-50D3-4B24-BFC3-FE9CE2A5ACFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A07D1782-50D3-4B24-BFC3-FE9CE2A5ACFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A07D1782-50D3-4B24-BFC3-FE9CE2A5ACFC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A07D1782-50D3-4B24-BFC3-FE9CE2A5ACFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A07D1782-50D3-4B24-BFC3-FE9CE2A5ACFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A07D1782-50D3-4B24-BFC3-FE9CE2A5ACFC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
