@@ -1,0 +1,100 @@
+{
+  "dogs": [
+    {
+      "id": 1,
+      "name": "Bernie",
+      "description": "Chien d'Arnold",
+      "collarColor": 1,
+      "masterId": 1
+    },
+    {
+      "id": 2,
+      "name": "Blackie",
+      "description": "Chienne maudite mais pleine d'amour",
+      "collarColor": 4,
+      "masterId": 3
+    },
+    {
+      "id": 3,
+      "name": "Jack",
+      "description": "Chien borgne accuse de viol",
+      "collarColor": 2,
+      "masterId": 2
+    },
+    {
+      "id": 4,
+      "name": "Rex",
+      "description": "Chien des plus banal, seul au monde",
+      "collarColor": 5,
+      "masterId": 0
+    },
+    {
+      "id": 5,
+      "name": "Medor",
+      "description": "Fidele labrador, plutot serviable",
+      "collarColor": 3,
+      "masterId": 4
+    }
+  ],
+  "masters": [
+    {
+      "id": 1,
+      "firstName": "Arnold",
+      "lastName": "SCHWARTZ",
+      "email": "arnold.swartz@mail.com",
+      "phone": "+324921478475",
+      "dateOfBirth": "1987-04-20",
+      "addressId": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Jotaro",
+      "lastName": "CUJOH",
+      "email": "yare.yare@mail.com",
+      "phone": "+31123456789",
+      "dateOfBirth": "1967-01-23",
+      "addressId": 2
+    },
+    {
+      "id": 3,
+      "firstName": "Jolyne",
+      "lastName": "CUJOH",
+      "email": "jolyne.jolyne@mail.com",
+      "phone": "+33666666666",
+      "dateOfBirth": "1984-07-18",
+      "addressId": 2
+    },
+    {
+      "id": 4,
+      "firstName": "Ronald",
+      "lastName": "MC.DONALD",
+      "email": "get.fat@food.com",
+      "phone": "9000",
+      "dateOfBirth": "1876-11-27",
+      "addressId": 3
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "streetNumber": 404,
+      "streetName": "Rue des Templiers",
+      "postalCode": "59000",
+      "cityName": "Lille"
+    },
+    {
+      "id": 2,
+      "streetNumber": 512,
+      "streetName": "Ashigate Yame",
+      "postalCode": "5784",
+      "cityName": "Kyoto"
+    },
+    {
+      "id": 3,
+      "streetNumber": 24,
+      "streetName": "Winston Main Ave.",
+      "postalCode": "5800",
+      "cityName": "Washington"
+    }
+  ]
+}

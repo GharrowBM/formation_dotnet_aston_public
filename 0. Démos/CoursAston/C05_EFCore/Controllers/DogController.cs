@@ -37,12 +37,9 @@ namespace C05_EFCore.Controllers
 
             _context.Dogs.Add(newDog);
 
-            if(_context.SaveChanges() > 0) return RedirectToAction("Index");
-            else
-            {
-                ModelState.AddModelError("Erreur", "Ajout en Base de données impossible !");
-                return View(newDog);
-            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -50,8 +47,7 @@ namespace C05_EFCore.Controllers
         {
             Dog found = _context.Dogs.FirstOrDefault(x => x.Id == id);
 
-            if (found != null) return View(found);
-            else return View("Error");
+            return View(found);
         }
 
         [HttpPost]
@@ -69,23 +65,18 @@ namespace C05_EFCore.Controllers
             found.CollarColor = newDog.CollarColor;
 
             _context.Dogs.Update(found);
-            if (_context.SaveChanges() > 0) return RedirectToAction("Index");
-            else
-            {
-                ModelState.AddModelError("Erreur", "Edition en Base de données impossible !");
-                return View(newDog);
-            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
             _context.Dogs.Remove(_context.Dogs.FirstOrDefault(x => x.Id == id));
-            if (_context.SaveChanges() > 0) return RedirectToAction("Index");
-            else
-            {
-                return View("Error");
-            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

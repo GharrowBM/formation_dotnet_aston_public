@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C07_Xamarin.Pages.AddressesListPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="addAddressTBI" 
+                     Text="+ Add" 
+                     Clicked="addAddressTBI_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="addressesListView"
+                      Style="{StaticResource BasicListView}"
+                      RowHeight="40"
+                      ItemSelected="addressesListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding}" TextColor="{StaticResource mainColor01}" FontSize="18" FontAttributes="Bold,Italic" VerticalTextAlignment="Center"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

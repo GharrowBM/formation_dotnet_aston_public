@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C07_Xamarin.Pages.EditAddressPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Modifier une adresse"
+                   Style="{StaticResource H1Label}"/>
+            <Entry x:Name="addressStreetNumberEntry"
+                   Placeholder="Numero de rue"
+                   Keyboard="Numeric"/>
+            <Entry x:Name="addressStreetNameEntry"
+                   Placeholder="Nom de rue"/>
+            <Entry x:Name="addressPostalCodeEntry"
+                   Placeholder="Code Postal"
+                   Keyboard="Numeric"/>
+            <Entry x:Name="addressCityNameEntry"
+                   Placeholder="Nom de commune"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,10">
+                <Button x:Name="editAddressButton"
+                    Text="Edit"
+                    Clicked="editAddressButton_Clicked"/>
+                <Button x:Name="delAddressButton"
+                    Text="Delete"
+                    Clicked="delAddressButton_Clicked"/>
+                        
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,8 +1,9 @@
-﻿using C07_Xamarin.Models;
+﻿using C07_Xamarin.Helpers;
 using C07_Xamarin.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,6 +14,7 @@ namespace C07_Xamarin
     public partial class App : Application
     {
         public static string DatabaseLocation;
+        public static string Token;
         public App()
         {
             InitializeComponent();
@@ -26,6 +28,9 @@ namespace C07_Xamarin
 
             MainPage = new NavigationPage(new MainPage());
             DatabaseLocation = databaseLocation;
+            Token = string.Empty;
+
+            DBClient.InitializeDB();
         }
 
         protected override void OnStart()
