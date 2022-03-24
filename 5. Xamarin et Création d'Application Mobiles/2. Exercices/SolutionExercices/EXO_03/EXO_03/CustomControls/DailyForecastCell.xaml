@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_03.CustomControls.DailyForecastCell">
+  <ViewCell.View>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="Meteo_Icon.Png" HeightRequest="50" WidthRequest="50" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+            <Label x:Name="dateLabel" Text="{Binding Date, Mode=TwoWay, StringFormat='{0:D}'}" FontSize="18" FontAttributes="Bold" Grid.Row="0" Grid.Column="1"/>
+            <Label x:Name="descLabel" Text="{Binding Day.IconPhrase, Mode=TwoWay}" FontAttributes="Italic" Grid.Row="1" Grid.Column="1"/>
+            <Label x:Name="minTempLabel" Text="{Binding Temperature.Minimum.Value, StringFormat='{0}°C', Mode=TwoWay}" Grid.Row="0" Grid.Column="2"/>
+            <Label x:Name="maxTempLabel" Text="{Binding Temperature.Maximum.Value, StringFormat='{0}°C', Mode=TwoWay}" Grid.Row="1" Grid.Column="2"/>
+        </Grid>
+    </ViewCell.View>
+</ViewCell>

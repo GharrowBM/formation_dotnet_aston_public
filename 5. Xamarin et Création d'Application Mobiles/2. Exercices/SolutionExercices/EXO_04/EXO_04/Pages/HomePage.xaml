@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:EXO_02.Pages"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="EXO_02.Pages.HomePage"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="{StaticResource mainColor01}">
+    
+  <local:HistoryPage Title="History" IconImageSource="Clock_Icon.png" />
+  <local:MapPage Title="Map" IconImageSource="Map_Icon.png" />
+  <local:ProfilePage Title="Profile" IconImageSource="User_Icon.png" />
+</TabbedPage>

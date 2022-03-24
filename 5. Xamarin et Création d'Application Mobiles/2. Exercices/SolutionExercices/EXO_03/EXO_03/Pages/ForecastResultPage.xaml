@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customC="clr-namespace:EXO_03.CustomControls"
+             x:Class="EXO_03.Pages.ForecastResultPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="{Binding PageTitle}"
+                   FontSize="Large"
+                   HorizontalTextAlignment="Center"/>
+            <ListView ItemsSource="{Binding Forecasts}"
+                      HasUnevenRows="True"
+                      Margin="10"
+                      SelectedItem="{Binding SelectedForecast, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <customC:DailyForecastCell/>
+
+                        <!--<ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="Meteo_Icon.Png" HeightRequest="50" WidthRequest="50" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                                <Label Text="{Binding Date}" FontSize="Large" FontAttributes="Bold" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding Day.IconPhrase}" FontAttributes="Italic" Grid.Row="1" Grid.Column="1"/>
+                                <Label Text="{Binding Temperature.Minimum.Value}" Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="{Binding Temperature.Maximum.Value}" Grid.Row="1" Grid.Column="2"/>
+                                <Label Text="{Binding Day.HasPrecipitation}" Grid.Row="2" Grid.Column="2"/>
+                            </Grid>
+                        </ViewCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

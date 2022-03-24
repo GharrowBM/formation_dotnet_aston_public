@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_02.Pages.HistoryPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="addEventToolbarItem"
+                     Text="+ Add"
+                     Clicked="addEventToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ListView x:Name="eventsListView"
+                  HasUnevenRows="True"
+                  ItemSelected="eventsListView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Title}" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource textCol01}" Grid.Column="0" Grid.Row="0"/>
+                            <Label Text="{Binding Description}" FontAttributes="Italic" TextColor="{StaticResource textCol02}" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1"/>
+                            <Label Text="{Binding RemainingDays}" FontSize="Small" FontAttributes="Bold" TextColor="{StaticResource textCol01}" Grid.Column="1" Grid.Row="0"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
