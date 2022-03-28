@@ -16,7 +16,6 @@ namespace C08_NUnit
         [SetUp]
         public void Setup()
         {
-            // Arrange
             _calculator = new Calculator();
         }
 
@@ -165,5 +164,6 @@ namespace C08_NUnit
             Assert.That(result, Is.Ordered.Ascending);
             Assert.That(result, Is.Unique);
         }
+
     }
 }
