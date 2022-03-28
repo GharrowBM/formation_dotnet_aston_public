@@ -16,6 +16,7 @@ namespace C08_NUnit
         [SetUp]
         public void Setup()
         {
+            // Arrange
             _calculator = new Calculator();
         }
 
