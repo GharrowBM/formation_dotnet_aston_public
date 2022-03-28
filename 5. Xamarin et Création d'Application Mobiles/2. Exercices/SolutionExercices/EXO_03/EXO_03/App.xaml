@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_03.App">
+    <Application.Resources>
+        <Color x:Key="mainBgColor">#5A0B3B</Color>
+        <Color x:Key="mainFgColor">#C63561</Color>
+        <Color x:Key="mainTextColor">#1E1E1E</Color>
+        
+        <Style TargetType="NavigationPage">
+            <Setter Property="BackgroundColor" Value="{StaticResource mainBgColor}"/>
+            <Setter Property="BarBackgroundColor" Value="{StaticResource mainFgColor}"/>
+            <Setter Property="BarTextColor" Value="{StaticResource mainTextColor}"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource mainFgColor}"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </Application.Resources>
+</Application>

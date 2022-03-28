@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_02.Pages.MainPage">
+
+    <StackLayout Margin="15" VerticalOptions="Center" Spacing="15">
+        <Entry x:Name="emailEntry"
+               Keyboard="Email"
+               Text="user@example.com"
+               Placeholder="Email"/>
+        <Entry x:Name="passwordEntry"
+               Placeholder="Password"
+               IsPassword="True"
+               Text="Pa$$w0rd"/>
+        <Button x:Name="loginButton"
+                Text="Login"
+                HorizontalOptions="Center"
+                Style="{StaticResource mainButton}"
+                Clicked="loginButton_Clicked"/>
+    </StackLayout>
+
+</ContentPage>

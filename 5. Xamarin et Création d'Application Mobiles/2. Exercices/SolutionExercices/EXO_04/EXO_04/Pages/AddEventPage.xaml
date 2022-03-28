@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_02.Pages.AddEventPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Spacing="15">
+            <Entry x:Name="titleEntry"
+                   Placeholder="Titre"/>
+            <Entry x:Name="descEntry"
+                   Placeholder="Description"/>
+            <DatePicker x:Name="datePicker"/>
+            <Button x:Name="addButton"
+                    Text="Ajouter"
+                    Style="{StaticResource mainButton}"
+                    Clicked="addButton_Clicked"/>
+            <ListView x:Name="nearbyPlacesListView"
+                      RowHeight="150"
+                      Margin="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding name}" TextColor="Orange" FontAttributes="Italic,Bold" FontSize="20" Grid.Row="0" />
+                                <Label Text="{Binding vicinity}" TextColor="White" FontAttributes="Italic" FontSize="16" Grid.Row="1" />
+                                <Label Text="{Binding types[0]}" TextColor="Orange" FontSize="Body" FontAttributes="Bold" Grid.Row="2" HorizontalTextAlignment="End"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                      
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

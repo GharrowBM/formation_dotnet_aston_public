@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_02.Pages.EventDetailsPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Spacing="15">
+            <Entry x:Name="titleEntry"
+                   Placeholder="Titre"/>
+            <Entry x:Name="descEntry"
+                   Placeholder="Description"/>
+            <DatePicker x:Name="datePicker"/>
+            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="CenterAndExpand">
+                <Button x:Name="updateButton"
+                        Text="Editer"
+                        Style="{StaticResource mainButton}"
+                        Clicked="updateButton_Clicked"/>
+                <Button x:Name="deleteButton"
+                        Text="Supprimer"
+                        Style="{StaticResource mainButton}"
+                        Clicked="deleteButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

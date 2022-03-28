@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EXO_03.Pages.MainPage">
+    
+    <ContentPage.Content>
+        <StackLayout Margin="10, 25, 10, 0" VerticalOptions="StartAndExpand">
+            <Image Source="Meteo_Icon.png" WidthRequest="150" HeightRequest="150"/>
+            <Entry x:Name="cityEntry"
+                   Text="{Binding CitySearchQuery, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}"/>
+            <Button x:Name="searchCitiesButton"
+                    Text="Search"
+                    HorizontalOptions="Center"
+                    Command="{Binding SearchCitiesByNameCommand}"
+                    CommandParameter="{Binding CitySearchQuery}"/>
+            <ListView HasUnevenRows="True" 
+                      ItemsSource="{Binding Locations, UpdateSourceEventName=PropertyChanged}" 
+                      Margin="10"
+                      SelectedItem="{Binding SelectedLocation, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding LocalizedName}" Grid.Row="0" Grid.Column="0" FontAttributes="Bold,Italic" FontSize="Large"/>
+                                <Label Text="{Binding AdministrativeArea.LocalizedName}" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="{Binding Country.ID}" Grid.Row="0" Grid.RowSpan="1" Grid.Column="1" VerticalOptions="Center" FontSize="Large"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
