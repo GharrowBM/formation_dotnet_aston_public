@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EX02_Classes", "EX02_Classe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EX02_NUnitTest", "EX02_NUnitTest\EX02_NUnitTest.csproj", "{8BB7FB23-A71C-42DC-A7A5-3FB9C57ED6F9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EX03_Classes", "EX03_Classes\EX03_Classes.csproj", "{23C90E64-75BA-443D-8858-C1B1D9A0EBEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EX03_NunitTests", "EX03_NunitTests\EX03_NunitTests.csproj", "{86F4B342-9737-4393-82A0-EFCB2596AAA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{8BB7FB23-A71C-42DC-A7A5-3FB9C57ED6F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BB7FB23-A71C-42DC-A7A5-3FB9C57ED6F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BB7FB23-A71C-42DC-A7A5-3FB9C57ED6F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C90E64-75BA-443D-8858-C1B1D9A0EBEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C90E64-75BA-443D-8858-C1B1D9A0EBEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C90E64-75BA-443D-8858-C1B1D9A0EBEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C90E64-75BA-443D-8858-C1B1D9A0EBEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F4B342-9737-4393-82A0-EFCB2596AAA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F4B342-9737-4393-82A0-EFCB2596AAA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F4B342-9737-4393-82A0-EFCB2596AAA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F4B342-9737-4393-82A0-EFCB2596AAA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
