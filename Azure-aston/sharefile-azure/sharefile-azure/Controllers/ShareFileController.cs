@@ -56,7 +56,9 @@ namespace sharefile_azure.Controllers
             using Stream stream = new MemoryStream();
             await fileToUpload.CopyToAsync(stream);
             await file.CreateAsync(stream.Length);
+            stream.Position = 0;
             await file.UploadRangeAsync(new HttpRange(0, stream.Length),stream);
+            stream.Dispose();
             return Ok();
         }
      }
