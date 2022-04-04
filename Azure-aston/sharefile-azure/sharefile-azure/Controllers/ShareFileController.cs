@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Azure;
@@ -61,5 +62,35 @@ namespace sharefile_azure.Controllers
             stream.Dispose();
             return Ok();
         }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAll()
+        {
+            ShareClient shareClient = new ShareClient(connexionString, shareName);
+            ShareDirectoryClient directoryClient = shareClient.GetDirectoryClient("toto");
+            await directoryClient.CreateIfNotExistsAsync();
+            return Ok(GetAll(directoryClient));
+        }
+
+        private List<string> GetAll(ShareDirectoryClient racine)
+        {
+            List<string> files = new List<string>();
+            var allItems = racine.GetFilesAndDirectories();
+            foreach (ShareFileItem item in allItems)
+            {
+                if (item.IsDirectory)
+                {
+                    ShareDirectoryClient dir = racine.GetSubdirectoryClient(item.Name);
+                    files.AddRange(GetAll(dir));
+                }
+                else
+                {
+                    files.Add($"{racine.Name}/{item.Name}");
+                }
+            }
+            return files;
+        }
      }
+    
+    
 }
