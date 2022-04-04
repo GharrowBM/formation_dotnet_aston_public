@@ -1,7 +1,9 @@
+using System.IO;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Storage.Files.Shares;
 using Azure.Storage.Files.Shares.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace sharefile_azure.Controllers
@@ -36,11 +38,26 @@ namespace sharefile_azure.Controllers
             ShareDirectoryClient directoryClient = shareClient.GetDirectoryClient("toto");
             await directoryClient.CreateIfNotExistsAsync();
             ShareFileClient file = directoryClient.GetFileClient(name);
+            
             if (await file.ExistsAsync())
             {
                 return Ok(new {Message = file.Uri});
             }
             return NotFound();
         }
-    }
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> Upload([FromForm] IFormFile fileToUpload)
+        {
+            ShareClient shareClient = new ShareClient(connexionString, shareName);
+            ShareDirectoryClient directoryClient = shareClient.GetDirectoryClient("toto");
+            await directoryClient.CreateIfNotExistsAsync();
+            ShareFileClient file = directoryClient.GetFileClient(fileToUpload.FileName);
+            using Stream stream = new MemoryStream();
+            await fileToUpload.CopyToAsync(stream);
+            await file.CreateAsync(stream.Length);
+            await file.UploadRangeAsync(new HttpRange(0, stream.Length),stream);
+            return Ok();
+        }
+     }
 }
