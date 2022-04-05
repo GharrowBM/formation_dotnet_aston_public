@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ExempleBlob.Services
 {
@@ -39,6 +41,21 @@ namespace ExempleBlob.Services
             }
             return items;
         }
-        
+
+        public bool UploadFileToBlob(IFormFile file, string containerName)
+        {
+            BlobContainerClient containerClient = GetContainer(containerName);
+            if (containerClient != null)
+            {
+                BlobClient blobClient = containerClient.GetBlobClient(file.FileName);
+                using MemoryStream stream = new MemoryStream();
+                file.CopyTo(stream);
+                stream.Position = 0;
+                var response = blobClient.Upload(stream);
+                stream.Dispose();
+                return response != null;
+            }
+            return false;
+        }
     }
 }

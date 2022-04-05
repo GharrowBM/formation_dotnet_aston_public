@@ -1,4 +1,5 @@
 using ExempleBlob.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExempleBlob.Controllers
@@ -15,10 +16,22 @@ namespace ExempleBlob.Controllers
         }
 
         //endPoint pour créer un conteneur de blob
-        [HttpGet("create/container/{name}")]
+        [HttpGet("/create/container/{name}")]
         public IActionResult CreateContainer(string name)
         {
             return Ok( new {Result = _azureBlobService.CreateContainer(name)});
+        }
+
+        [HttpGet("/getItems/{name}")]
+        public IActionResult GetAllItems(string name)
+        {
+            return Ok(new {Result = _azureBlobService.GetBlobItems(name)});
+        }
+
+        [HttpPut("/addFile/{containerName}")]
+        public IActionResult PutFile([FromForm] IFormFile file, string containerName)
+        {
+            return Ok(new {Result = _azureBlobService.UploadFileToBlob(file, containerName)});
         }
     }
 }
