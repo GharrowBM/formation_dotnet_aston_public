@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMessageProject", "SendMessageProject\SendMessageProject.csproj", "{E96E1524-2900-4EBD-9DF9-7A2A819FE9AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadFromAzureQueueMessage", "ReadFromAzureQueueMessage\ReadFromAzureQueueMessage.csproj", "{BF69135D-DAD0-4B6E-B7C5-98C9D784E4D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E96E1524-2900-4EBD-9DF9-7A2A819FE9AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96E1524-2900-4EBD-9DF9-7A2A819FE9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96E1524-2900-4EBD-9DF9-7A2A819FE9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96E1524-2900-4EBD-9DF9-7A2A819FE9AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF69135D-DAD0-4B6E-B7C5-98C9D784E4D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF69135D-DAD0-4B6E-B7C5-98C9D784E4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF69135D-DAD0-4B6E-B7C5-98C9D784E4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF69135D-DAD0-4B6E-B7C5-98C9D784E4D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
