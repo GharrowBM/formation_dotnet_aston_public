@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 
 using Services.DTOs;
@@ -18,8 +19,14 @@ namespace SendMessageProject.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] MessageDT0 message)
         {
-            
-            return Ok(new {Result = _messageService.SendMessage(message)});
+            try
+            {
+                return Ok(new {Result = _messageService.SendMessage(message)});
+            }
+            catch (Exception ex)
+            {
+                return Ok(new {Message = ex.Message});
+            }
         }
     }
 
