@@ -12,12 +12,11 @@ namespace ServicesPackage.Services
 {
     public class MessageService : IMessageService
     {
-        //private string connectionString = @"DefaultEndpointsProtocol=https;AccountName=utopiosaston;AccountKey=YinX6bXgRmDmvRq3nN7P+uHAY8kr4RZj9tkvkq/LB6IQ2xGnh6FNoJYlofL/rhflVPfRZ3cLbnlLUuvM44NgXw==;EndpointSuffix=core.windows.net";
         private string queueName = "commande";
         private QueueClient queueClient;
         public MessageService()
         {
-            queueClient = new QueueClient(new Uri("https://utopiosaston.queue.core.windows.net/"), new DefaultAzureCredential());
+            queueClient = new QueueClient(new Uri($"https://utopiosaston.queue.core.windows.net/{queueName}"), new DefaultAzureCredential());
         }
         public bool SendMessage(MessageDT0 message)
         {
