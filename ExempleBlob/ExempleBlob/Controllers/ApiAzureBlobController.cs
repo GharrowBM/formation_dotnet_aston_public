@@ -1,3 +1,4 @@
+using System;
 using ExempleBlob.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,14 @@ namespace ExempleBlob.Controllers
         [HttpPut("/addFile/{containerName}")]
         public IActionResult PutFile([FromForm] IFormFile file, string containerName)
         {
-            return Ok(new {Result = _azureBlobService.UploadFileToBlob(file, containerName)});
+            try
+            {
+                return Ok(new {Result = _azureBlobService.UploadFileToBlob(file, containerName)});
+            }
+            catch (Exception e)
+            {
+                return Ok(new {Result = e.Message});
+            }
         }
     }
 }

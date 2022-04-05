@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Azure.Identity;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Http;
@@ -9,13 +11,12 @@ namespace ExempleBlob.Services
 {
     public class AzureBlobService
     {
-        private string connectionString = @"DefaultEndpointsProtocol=https;AccountName=utopiosaston;AccountKey=YinX6bXgRmDmvRq3nN7P+uHAY8kr4RZj9tkvkq/LB6IQ2xGnh6FNoJYlofL/rhflVPfRZ3cLbnlLUuvM44NgXw==;EndpointSuffix=core.windows.net";
-
+        
         private BlobServiceClient blobServiceClient;
 
         public AzureBlobService()
         {
-            blobServiceClient = new BlobServiceClient(connectionString);
+            blobServiceClient = new BlobServiceClient(new Uri("https://utopiosaston.blob.core.windows.net/images"), new DefaultAzureCredential());
         }
 
         public bool CreateContainer(string name)
