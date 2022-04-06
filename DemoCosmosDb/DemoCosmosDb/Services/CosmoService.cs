@@ -41,4 +41,18 @@ public class CosmoService
         Container container = GetContainer(dbName, containerName);
         return await container.CreateItemAsync<Person>(person, new PartitionKey(person.Id));
     }
+
+    public async void DeletePerson(string id, string dbName, string containerName)
+    {
+        Container container = GetContainer(dbName, containerName);
+        await container.DeleteItemAsync<Person>(id, new PartitionKey(id));
+    }
+
+    public async void UpdatePerson(string id, Person person, string dbName, string? containerName)
+    {
+        Container container = GetContainer(dbName, containerName);
+        await container.UpsertItemAsync(person, new PartitionKey(id));
+    }
+    
+    
 }
