@@ -61,7 +61,7 @@ public class CosmoService
         return read.Resource;
     }
 
-    public async Task<IEnumerable<Person>> GetPersons(string id, string dbName, string containerName)
+    public async Task<IEnumerable<Person>> GetPersons(string dbName, string containerName)
     {
         List<Person> persons = new List<Person>();
         Container container = GetContainer(dbName, containerName);
