@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<MockDatabase>();
 builder.Services.AddScoped<IContactService, ContactService>();
-builder.Services.AddScoped<IUploadService, UploadService>();
+builder.Services.AddScoped<IUploadService, UploadBlobService>();
 
 var app = builder.Build();
 
