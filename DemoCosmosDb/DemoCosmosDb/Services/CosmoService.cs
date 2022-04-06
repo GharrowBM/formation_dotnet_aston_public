@@ -48,11 +48,36 @@ public class CosmoService
         await container.DeleteItemAsync<Person>(id, new PartitionKey(id));
     }
 
-    public async void UpdatePerson(string id, Person person, string dbName, string? containerName)
+    public async void UpdatePerson(string id, Person person, string dbName, string containerName)
     {
         Container container = GetContainer(dbName, containerName);
         await container.UpsertItemAsync(person, new PartitionKey(id));
     }
-    
-    
+
+    public async Task<Person> GetPerson(string id, string dbName, string containerName)
+    {
+        Container container = GetContainer(dbName, containerName);
+        ItemResponse<Person> read = await container.ReadItemAsync<Person>(id, new PartitionKey(id));
+        return read.Resource;
+    }
+
+    public async Task<IEnumerable<Person>> GetPersons(string id, string dbName, string containerName)
+    {
+        List<Person> persons = new List<Person>();
+        Container container = GetContainer(dbName, containerName);
+        FeedIterator<Person> query = container.GetItemQueryIterator<Person>(new QueryDefinition("SELECT * FROM c"));
+        while (query.HasMoreResults)
+        {
+            persons.AddRange((await query.ReadNextAsync()).ToList());
+        }
+        
+        return persons;
+    }
+
+
+
+
+
+
+
 }
