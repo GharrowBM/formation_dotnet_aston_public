@@ -65,7 +65,7 @@ public class CosmoService
     {
         List<Person> persons = new List<Person>();
         Container container = GetContainer(dbName, containerName);
-        FeedIterator<Person> query = container.GetItemQueryIterator<Person>(new QueryDefinition("SELECT * FROM c"));
+        FeedIterator<Person> query = container.GetItemQueryIterator<Person>(new QueryDefinition("SELECT c.id, c.first_name, c.last_name FROM c"));
         while (query.HasMoreResults)
         {
             persons.AddRange((await query.ReadNextAsync()).ToList());
