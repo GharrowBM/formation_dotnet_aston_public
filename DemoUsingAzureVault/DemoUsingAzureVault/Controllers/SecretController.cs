@@ -14,16 +14,33 @@ public class SecretController : ControllerBase
         _secretService = secretService;
     }
 
-    [HttpPut("/{name}")]
+    [HttpPut("{name}")]
     public IActionResult Put(string name, [FromForm] string value)
     {
-        _secretService.SetTokenSecret(name, value);
-        return Ok();
+        try
+        {
+            _secretService.SetTokenSecret(name, value);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return Ok(ex);
+        }
+            
     }
 
-    [HttpGet("/{name}")]
+    [HttpGet("{name}")]
     public IActionResult Get(string name)
     {
-        return Ok(_secretService.GetTokenSecret(name));
+        try
+        {
+            
+            return Ok(new {result = _secretService.GetTokenSecret(name)});
+        }
+        catch (Exception ex)
+        {
+            return Ok(new {result = ex});
+        }
+        
     }
 }

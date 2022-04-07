@@ -14,7 +14,8 @@ public class SecretService
 
     public string GetTokenSecret(string secretName)
     {
-        return _secretClient.GetSecret(secretName).Value.ToString();
+        var secret = _secretClient.GetSecret(secretName);
+        return secret.Value.Value;
     }
 
     public void SetTokenSecret(string secretName, string secretValue)
