@@ -36,9 +36,32 @@ public class CosmoController : ControllerBase
     }
     
     //Récupération 
+    [HttpGet("/db/{dbName}/container/{containerName}/persons")]
+    public IActionResult GetItems(string dbName, string containerName)
+    {
+        return Ok(new {Results = _cosmoService.GetPersons(dbName, containerName)});
+    }
+    
+    [HttpGet("/db/{dbName}/container/{containerName}/persons/{id}")]
+    public IActionResult GetItem(string dbName, string containerName, string id)
+    {
+        return Ok(new {Results = _cosmoService.GetPerson(id, dbName, containerName)});
+    }
     
     //Suppression
-    
+    [HttpDelete("/db/{dbName}/container/{containerName}/persons/{id}")]
+    public IActionResult DeleteItem(string dbName, string containerName, string id)
+    {
+        _cosmoService.DeletePerson(id, dbName, containerName);
+        return Ok();
+    }
     //Mise à jour
+    
+    [HttpPut("/db/{dbName}/container/{containerName}/persons/{id}")]
+    public IActionResult UpdateItem(string dbName, string containerName, string id, [FromBody] Person person)
+    {
+        _cosmoService.UpdatePerson(id, person, dbName, containerName);
+        return Ok();
+    }
     
 }
