@@ -19,12 +19,14 @@ namespace TP05.Controllers
         private IRepository<User> _usersRepository;
         private PasswordService _passwordService;
         private readonly IConfiguration _config;
+        private SecretService _secretService;
 
-        public UsersController(IRepository<User> usersRepository, PasswordService passwordService, IConfiguration config)
+        public UsersController(IRepository<User> usersRepository, PasswordService passwordService, IConfiguration config, SecretService secretService)
         {
             _usersRepository = usersRepository;
             _passwordService = passwordService;
             _config = config;
+            _secretService = secretService;
         }
 
         [HttpPost("/login")]
@@ -43,7 +45,7 @@ namespace TP05.Controllers
                 };
 
                 //Objet pour signer le token
-                SigningCredentials signingCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SecretKey"])), SecurityAlgorithms.HmacSha256);
+                SigningCredentials signingCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretService.GetTokenSecret("jwtsecret"))), SecurityAlgorithms.HmacSha256);
 
 
                 //Créer notre jwt

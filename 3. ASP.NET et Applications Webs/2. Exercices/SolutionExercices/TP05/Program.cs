@@ -14,6 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddScoped<IRepository<User>, UsersRepository>();
 builder.Services.AddScoped<IRepository<Pizza>, PizzasRepository>();
 builder.Services.AddScoped<PasswordService>();
+builder.Services.AddScoped<SecretService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -33,7 +34,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecretKey"])),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Services.BuildServiceProvider().GetService<SecretService>().GetTokenSecret("jwtsecret"))),
         ValidateIssuer = true,
         ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
         ValidateAudience = true,
